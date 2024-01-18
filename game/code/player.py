@@ -25,7 +25,7 @@ class Player(pygame.sprite.Sprite):
         
         # movement
         self.direction = pygame.math.Vector2()
-        self.speed = 2
+        self.speed = 3
         self.attacking = False
         self.attack_cooldown = 610
         self.attack_time = None
@@ -56,7 +56,9 @@ class Player(pygame.sprite.Sprite):
         for row in range(rows):
             for col in range(columns):
                 frame = sheet.subsurface((start_x + col * size_x, start_y + row * size_y, size_x, size_y))
+                #resized_surface = pygame.transform.scale(frame, (64, 48))
                 frames.append(frame)
+                #frames.append(resized_surface)
         print(f"Frames are: {frames}")
         return frames
     
@@ -85,29 +87,29 @@ class Player(pygame.sprite.Sprite):
     
     def input(self):
         keys = pygame.key.get_pressed()
-
-        if keys[K_UP]:
-            self.direction.y = -1
-        elif keys[K_DOWN]:
-            self.direction.y = 1
-        else:
-            self.direction.y = 0
-        
-        if keys[K_RIGHT]:
-            self.direction.x = 1
-            self.status = 'right'
-        elif keys[K_LEFT]:
-            self.direction.x = -1
-        
-        else:
-            self.direction.x = 0
+        if not self.attacking:
+            if keys[K_UP]:
+                self.direction.y = -1
+            elif keys[K_DOWN]:
+                self.direction.y = 1
+            else:
+                self.direction.y = 0
             
-        # attack input
-        if keys[pygame.K_SPACE] and not self.attacking:
+            if keys[K_RIGHT]:
+                self.direction.x = 1
+                self.status = 'right'
+            elif keys[K_LEFT]:
+                self.direction.x = -1
             
-            self.attacking = True
-            self.attack_time = pygame.time.get_ticks()
-            print("attack")
+            else:
+                self.direction.x = 0
+                
+            # attack input
+            if keys[pygame.K_SPACE] and not self.attacking:
+                
+                self.attacking = True
+                self.attack_time = pygame.time.get_ticks()
+                print("attack")
 
     def move(self, speed):
         if self.direction.magnitude() != 0:
