@@ -1,0 +1,326 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "World.tmx",
+    "expandedProjectPaths": [
+        "tiny swords/Tiny Swords (Update 010)",
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights",
+        "tiny swords/Tiny Swords (Update 010)/Resources",
+        "tiny swords",
+        "tiny swords/Tiny Swords (Update 010)/Terrain",
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops",
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground",
+        "tiny swords/Tiny Swords (Update 010)/UI",
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons",
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops/Pawn",
+        "tiny swords/Tiny Swords (Update 010)/UI/Icons",
+        "tiny swords/Tiny Swords (Update 010)/UI/Banners",
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions",
+        "tiny swords/Tiny Swords (Update 010)/Resources/Trees",
+        "."
+    ],
+    "file.lastUsedOpenFilter": "Tutti i file (*)",
+    "fileStates": {
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops/Pawn/Pawn_Purple.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Resources/Trees/Tree.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Terrain/Bridge/Bridge_All.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Terrain/Ground/Shadows.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Terrain/Ground/Tilemap_Elevation.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Terrain/Ground/Tilemap_Flat.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Terrain/Water/Foam/Foam.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Terrain/Water/Water.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Coding/python/game/graphics/other/stop.tsx": {
+            "scaleInDock": 1
+        },
+        "/home/andrea/Scrivania/Senza Titolo.tmx": {
+            "scale": 0.55575,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 629.7795771479982,
+                "y": 368.8708951866848
+            }
+        },
+        ":/automap-tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "Shadows.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "World.tmx": {
+            "expandedGroupLayers": [
+                14
+            ],
+            "scale": 0.75,
+            "selectedLayer": 9,
+            "viewCenter": {
+                "x": 864,
+                "y": 766.6666666666667
+            }
+        },
+        "tiny swords/Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Pawn_Purple.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Resources/Trees/Tree.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Resources/Trees/tree.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Bridge/Bridge_All.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Foam.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground/Bridge_All.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground/Shadows.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground/Shadows_tmp.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Elevation.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Rocks_01.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Rocks_02.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Rocks_03.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Rocks_04.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Shadows.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Terrain.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Tilemap_Elevation.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Tilemap_Flat.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Water.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Water/Foam/Foam.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Water/Rocks/Rocks_01.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Water/Rocks/Rocks_02.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Water/Rocks/Rocks_03.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Water/Rocks/Rocks_04.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Water/Rocks_01.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Water/Water.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/Terrain/terrain.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Banners/Banner_Vertical.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides_Pressed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides_Pressed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Disable.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Disable_3Slides.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Hover_3Slides.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Hover_9Slides.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Red_3Slides.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Red_3Slides_Pressed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Red_Pressed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/ciao.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Icons/Disable_01.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Icons/Disable_02.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Icons/Disable_03.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/UI/Icons/Disable_06.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiny swords/Tiny Swords (Update 010)/other/stop.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "/home/andrea/Scrivania/Coding/python/game/map",
+    "last.externalTilesetPath": "/home/andrea/Scrivania/Coding/python/game/graphics/Resources/Trees",
+    "last.imagePath": "/home/andrea/Scrivania/Coding/python/game/data/tiny swords/Tiny Swords (Update 010)/Terrain/Ground",
+    "map.fixedSize": true,
+    "map.height": 3,
+    "map.lastUsedExportFilter": "File CSV (*.csv)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 64,
+    "map.tileWidth": 64,
+    "map.width": 5,
+    "openFiles": [
+        "World.tmx"
+    ],
+    "project": "Senza Titolo.tiled-project",
+    "recentFiles": [
+        "World.tmx",
+        "tiny swords/Tiny Swords (Update 010)/other/stop.tsx",
+        "tiny swords/Tiny Swords (Update 010)/Resources/Trees/Tree.tsx",
+        "tiny swords/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.tsx",
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue.tsx",
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Disable.tsx",
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons/Button_Red_Pressed.tsx",
+        "tiny swords/Tiny Swords (Update 010)/UI/Icons/Disable_02.tsx",
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground/Shadows.tsx",
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground/Shadows_tmp.tsx",
+        "/home/andrea/Scrivania/Senza Titolo.tmx",
+        "Shadows.tsx"
+    ],
+    "tileset.lastUsedFilter": "File Tileset Tiled (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 64,
+        "width": 64
+    },
+    "tileset.type": 0
+}
