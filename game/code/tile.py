@@ -6,5 +6,12 @@ class Tile(pygame.sprite.Sprite):
         super().__init__(groups)
         self.sprite_type = sprite_type
         self.image = surface
-        self.rect = self.image.get_rect(topleft = pos)
+        self.offsetx = 0
+        self.offsety = 0
+        if sprite_type == 'deco':
+            if self.image.get_height() > TILESIZE:
+                self.offsety = TILESIZE*(self.image.get_height()//TILESIZE-1)
+            self.rect = self.image.get_rect(topleft = (pos[0] + self.offsetx, pos[1] - self.offsety))
+        else:
+            self.rect = self.image.get_rect(topleft = pos)
         self.hitbox = self.rect.inflate(0,-10)

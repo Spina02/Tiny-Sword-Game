@@ -16,6 +16,7 @@ def import_folder(path):
     surface_list = []
 
     for _, __, img_files in walk(path):
+        img_files.sort()
         for image in img_files:
             if 'png' in image:
                 full_path = path + '/' + image
