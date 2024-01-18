@@ -1,0 +1,27 @@
+Legenda: "-" non fatto, "X" fatto
+
+[-] Creare mappa più complessa
+[-] Creare un tileset unico, in modo da ottimizzare la pesantezza 
+[-] Creare funzioni per gestire le animazioni
+[-] Finire di implementare la logica base
+[-] Implementare funzioni che permettano interazioni tra oggetti
+[-] Implementare alcuni NPC, con un pattern di moviemento e dei dialoghi
+[-] Implementare loot 
+[-] Implementare nemici con un IA base
+[-] Implementare combact system (gestire animazioni per il combattimento)
+[-] Gestire transazioni tra mappe
+[-] Gestire i sistemi di salvataggio e caricamento
+[-] Possibile sistema di progressione del personaggio
+[-] Possibile sistema di Crafting e raccolta risorse
+[-] Variazioni ambientali e climatiche (giorno/notte)
+[-] Aggiunta di puzzle o minigiochi
+[-] Sistema di achievement
+[-] Implementazioni di musiche e effetti sonori
+[-] Aggiunta del tutorial
+[-] Aggiunta di una valuta e di shop per comprare items
+[-] Aggiunta di una trama
+[-] Aggiunta delle cut-scene per una trama più coinvolgente (livello EXTREME)
+[-] Aggiunta modalità co-op
+[-] Aggiunta personalizzazione del personaggio
+[-] Aggiunta easter eggs --> entrando in un punto della mappa si entra nel gioco del matti (chi sa, sa)
+[-] Ottimizzare il codice
