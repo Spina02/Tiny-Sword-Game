@@ -37,14 +37,17 @@ class Player(pygame.sprite.Sprite):
         self.animations = {
             # idel --> quando stai fermo immobile
             "right_idle": self.get_animation_frames(self.sprite_sheet, 0, 0, self.frame_height, self.frame_width, 1, 6),
-            "right": self.get_animation_frames(self.sprite_sheet, 0, 0 , self.frame_height,self.frame_width, 1, 6),
-            #"right_jump": self.get_animation_frames(self.sprite_sheet, 0, TILESIZE, self.frame_height, self.frame_width, 6, 1),
+            "right": self.get_animation_frames(self.sprite_sheet, 0, self.frame_height, self.frame_height, self.frame_width, 1, 6),
             "right_attack_1": self.get_animation_frames(self.sprite_sheet, 0, 2*self.frame_height, self.frame_height, self.frame_width, 1, 6),
             #"right_attack_2": self.get_animation_frames(self.sprite_sheet, 0, 3*TILESIZE, self.frame_height, self.frame_width, 1, 6),
             #"right_frontal_attack_1": self.get_animation_frames(self.sprite_sheet, 0, 4*TILESIZE, self.frame_height, self.frame_width, 1, 6),
             #"right_frontal_attack_2": self.get_animation_frames(self.sprite_sheet, 0, 5*TILESIZE, self.frame_height, self.frame_width, 1, 6),
             #"right_back_attack_1": self.get_animation_frames(self.sprite_sheet, 0, 6*TILESIZE, self.frame_height, self.frame_width, 1, 6),
             #"right_back_attack_2": self.get_animation_frames(self.sprite_sheet, 0, 7*TILESIZE, self.frame_height, self.frame_width, 1, 5),
+            "left_idle": [pygame.transform.flip(frame, True, False) for frame in self.get_animation_frames(self.sprite_sheet, 0, 0, self.frame_height, self.frame_width, 1, 6)],
+            "left": [pygame.transform.flip(frame, True, False) for frame in self.get_animation_frames(self.sprite_sheet, 0, self.frame_height, self.frame_height, self.frame_width, 1, 6)],
+            "left_attack_1": [pygame.transform.flip(frame, True, False) for frame in self.get_animation_frames(self.sprite_sheet, 0, 2*self.frame_height, self.frame_height, self.frame_width, 1, 6)],
+
         }
         
         
@@ -100,6 +103,7 @@ class Player(pygame.sprite.Sprite):
                 self.status = 'right'
             elif keys[K_LEFT]:
                 self.direction.x = -1
+                self.status = 'left'
             
             else:
                 self.direction.x = 0
