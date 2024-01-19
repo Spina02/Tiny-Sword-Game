@@ -1,121 +1,121 @@
 import pygame
 from pygame.locals import *
 from settings import *
-from support import *
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, obstacles_sprites):
         super().__init__(groups) 
-        self.charachter_path = "game/graphics/Factions/Knights/Troops/Warrior/Yellow/Warrior_Yellow.png"
-        self.sprite_sheet = pygame.image.load(self.charachter_path)
-        
-        self.frame_width = self.sprite_sheet.get_width()/8
-        self.frame_height = self.sprite_sheet.get_height()/8
-        #print(f'{frame_height, frame_width}')
-        self.image = self.sprite_sheet.subsurface((0, 0, self.frame_width, self.frame_height))
-        
+
+        self.n_frame = 1
+        self.n_anim = 1
+        # load image
+        self.images = None
+        #self.image = pygame.image.load("game/graphics/Factions/Knights/Buildings/House/House_Blue.png").convert_alpha()
+        self.image = self.img_init('game/graphics/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png', 6, 8).convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
-        self.hitbox = self.rect.inflate(0,-80)
-        
-        #graphic
+        # define hitbox
+        self.hitbox = self.rect.inflate(-128,-128)
+
+        # graphic setup
         self.import_player_assets()
-        self.status = "right_idle"
+        self.status = 'down'
         self.frame_index = 0
-        self.animation_speed = 0.06
-        
+        self.nextFrame = pygame.time.get_ticks()
+
         # movement
         self.direction = pygame.math.Vector2()
-        self.speed = 3
+        self.speed = 2
         self.attacking = False
-        self.attack_cooldown = 610
+        self.attack_cooldown = 600
         self.attack_time = None
 
-        self.obstacles_sprites = obstacles_sprites    
-       
+        self.obstacles_sprites = obstacles_sprites
+
     def import_player_assets(self):
-        
-        self.animations = {
-            # idel --> quando stai fermo immobile
-            "right_idle": self.get_animation_frames(self.sprite_sheet, 0, 0, self.frame_height, self.frame_width, 1, 6),
-            "right": self.get_animation_frames(self.sprite_sheet, 0, self.frame_height, self.frame_height, self.frame_width, 1, 6),
-            "right_attack_1": self.get_animation_frames(self.sprite_sheet, 0, 2*self.frame_height, self.frame_height, self.frame_width, 1, 6),
-            #"right_attack_2": self.get_animation_frames(self.sprite_sheet, 0, 3*TILESIZE, self.frame_height, self.frame_width, 1, 6),
-            #"right_frontal_attack_1": self.get_animation_frames(self.sprite_sheet, 0, 4*TILESIZE, self.frame_height, self.frame_width, 1, 6),
-            #"right_frontal_attack_2": self.get_animation_frames(self.sprite_sheet, 0, 5*TILESIZE, self.frame_height, self.frame_width, 1, 6),
-            #"right_back_attack_1": self.get_animation_frames(self.sprite_sheet, 0, 6*TILESIZE, self.frame_height, self.frame_width, 1, 6),
-            #"right_back_attack_2": self.get_animation_frames(self.sprite_sheet, 0, 7*TILESIZE, self.frame_height, self.frame_width, 1, 5),
-            "left_idle": [pygame.transform.flip(frame, True, False) for frame in self.get_animation_frames(self.sprite_sheet, 0, 0, self.frame_height, self.frame_width, 1, 6)],
-            "left": [pygame.transform.flip(frame, True, False) for frame in self.get_animation_frames(self.sprite_sheet, 0, self.frame_height, self.frame_height, self.frame_width, 1, 6)],
-            "left_attack_1": [pygame.transform.flip(frame, True, False) for frame in self.get_animation_frames(self.sprite_sheet, 0, 2*self.frame_height, self.frame_height, self.frame_width, 1, 6)],
-
+        charachter_path = 'game/graphics/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png'
+        self.animations = { # each tuple is (n_anim, flip), 
+                            # TODO: v_flip and h_flip -> (n_anim, v_flip, h_flip)
+            'up_idle' : (0, 1), 'down_idle' : (0, 0), 'left_idle' : (0, 1), 'right_idle' : (0, 0), 'up': (1, 1), 'down' : (1,0), 'left' : (1,1), 'right': (1,0), 'up_attack' : (6,1), 'down_attack' : (2,0), 'left_attack' : (4,1), 'right_attack' : (2,0)
         }
-        
-        
-        print(self.animations)
-        
-    def get_animation_frames(self, sheet, start_x, start_y, size_x, size_y, rows, columns):
-        frames = []
-        print("Finding frames...\n")
-        for row in range(rows):
-            for col in range(columns):
-                frame = sheet.subsurface((start_x + col * size_x, start_y + row * size_y, size_x, size_y))
-                #resized_surface = pygame.transform.scale(frame, (64, 48))
-                frames.append(frame)
-                #frames.append(resized_surface)
-        print(f"Frames are: {frames}")
-        return frames
-    
-    def get_status(self):
-        
-        #idle status
-        if self.direction.x == 0 and self.direction.y == 0:
-            if not 'idle' in self.status and not "attack" in self.status:
-                self.status = self.status + "_idle"
 
+    def img_init(self, image, n_frame, n_anim):
+        self.n_frame = n_frame
+        self.n_anim = n_anim
+        self.images = [[] for _ in range(self.n_anim)]
+
+        img = pygame.image.load(image).convert_alpha()
+        self.originalWidth = img.get_width() // n_frame
+        self.originalHeight = img.get_height() // n_anim
+
+        print("Finding frames...\n")
+
+        for animNo in range(self.n_anim):
+            for frameNo in range(self.n_frame):
+                start_x = frameNo * self.originalWidth
+                start_y = animNo * self.originalHeight
+                frame = img.subsurface((start_x, start_y, self.originalWidth, self.originalHeight))
+                self.images[animNo].append(frame)
+
+        print(f"Frames are: {self.images}")
+
+        self.currentImage = 0
+        return self.images[0][0]
+
+
+            #to be continued
+        
+    def changeImage(self, anim, index):
+        self.currentImage = (anim, index)
+        self.image = self.images[anim][index]
+        self.mask = pygame.mask.from_surface(self.image)
+
+    def input(self):
+        keys = pygame.key.get_pressed()
+
+        # movement input
+        if keys[K_UP]:
+            self.direction.y = -1
+            self.status = 'up'
+        elif keys[K_DOWN]:
+            self.direction.y = 1
+            self.status = 'down'
+        else:
+            self.direction.y = 0
+        
+        if keys[K_RIGHT]:
+            self.direction.x = 1
+            self.status = 'right'
+        elif keys[K_LEFT]:
+            self.direction.x = -1
+            self.status = 'left'
+        else:
+            self.direction.x = 0
+
+        # attack input
+        if keys[K_SPACE] and not self.attacking:
+            self.attacking = True
+            self.attack_time = pygame.time.get_ticks()
+
+        
+    def get_status(self):
+        # idle status
+        if self.direction.x == 0 == self.direction.y:
+            if not 'idle' in self.status and not 'attack' in self.status:
+                self.status += '_idle'
 
         if self.attacking:
             self.direction.x = 0
             self.direction.y = 0
-            if not "attack" in self.status:
-                self.frame_index = 0
-                if "idle" in self.status:
-                    #overwrite idle
-                    self.status = self.status.replace("_idle", '_attack_1')
+            if not 'attack' in self.status:
+                if 'idle' in self.status:
+                    self.status = self.status.replace('_idle', '_attack')
                 else:
-                    self.status = self.status + "_attack_1" 
-                    
+                    self.status += '_attack'
         else:
             if 'attack' in self.status:
-                self.status = self.status.replace("_attack_1", "_idle")
-    
-    def input(self):
-        keys = pygame.key.get_pressed()
-        if not self.attacking:
-            if keys[K_UP]:
-                self.direction.y = -1
-            elif keys[K_DOWN]:
-                self.direction.y = 1
-            else:
-                self.direction.y = 0
-            
-            if keys[K_RIGHT]:
-                self.direction.x = 1
-                self.status = 'right'
-            elif keys[K_LEFT]:
-                self.direction.x = -1
-                self.status = 'left'
-            
-            else:
-                self.direction.x = 0
-                
-            # attack input
-            if keys[pygame.K_SPACE] and not self.attacking:
-                
-                self.attacking = True
-                self.attack_time = pygame.time.get_ticks()
-                print("attack")
+                self.status = self.status.replace('_attack', '')
 
-    def move(self, speed):
+    def move(self, speed):       
         if self.direction.magnitude() != 0:
             self.direction = self.direction.normalize()
         
@@ -126,6 +126,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = self.hitbox.center
 
     def collision(self, direction):
+
         if direction == "horizontal":
             for sprite in self.obstacles_sprites:
                 if sprite.hitbox.colliderect(self.hitbox):
@@ -140,27 +141,25 @@ class Player(pygame.sprite.Sprite):
                     if self.direction.y > 0: # moving down
                         self.hitbox.bottom = sprite.hitbox.top
                     if self.direction.y < 0: # moving up
-                        self.hitbox.top = sprite.hitbox.bottom        
+                        self.hitbox.top = sprite.hitbox.bottom
 
     def cooldowns(self):
         current_time = pygame.time.get_ticks()
-        
         if self.attacking:
             if current_time - self.attack_time >= self.attack_cooldown:
                 self.attacking = False
-
-    def animate(self):
-        animation = self.animations[self.status]
-        
-        # loop over the fram index
-        self.frame_index += self.animation_speed
-        if self.frame_index > len(animation):
-            self.frame_index = 0
             
-        #set the image
-        self.image = animation[int(self.frame_index)]
-        self.rect = self.image.get_rect(center = self.hitbox.center)
-    
+    def animate(self):
+        (animation, flip) = self.animations[self.status]
+        if pygame.time.get_ticks() > self.nextFrame:
+            self.frame_index = (self.frame_index + 1) % (self.n_frame)
+            self.nextFrame += 100
+
+            # set the image
+            # TODO: flip the image when needed
+            self.changeImage(animation, self.frame_index)
+            self.rect = self.image.get_rect(center = self.hitbox.center)
+
     def update(self):
         # update and draw the game
         self.input()
