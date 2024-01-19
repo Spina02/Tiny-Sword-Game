@@ -15,12 +15,9 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
         # define hitbox
         self.hitbox = pygame.Rect(self.rect.topleft[0], self.rect.topleft[1], 32, 20)
-        #self.hitbox = self.rect.copy()
-        #self.hitbox = self.hitbox.inflate(-128,-128)
-        #top_padding = 2
-        #self.hitbox.top += top_padding
-        #self.hitbox.height -= top_padding
-        #self.hitbox.midbottom = self.rect.midbottom
+        hitbox_size = (45, 60)
+        self.hitbox_damage = pygame.Rect(0, 0, *hitbox_size)
+        self.hitbox_damage.midbottom = self.rect.midbottom
 
         # graphic setup
         self.import_player_assets()
