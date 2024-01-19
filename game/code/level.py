@@ -35,28 +35,18 @@ class Level:
                         y = row_index * TILESIZE
                         if style == 'boundary':
                             Tile((x,y), [self.obstacle_sprites], 'invisible')
-                        # if style == 'grass':
-                        #     random_grass_image = choice(graphics['grass'])
-                        #     Tile((x,y), [self.visible_sprites, self.obstacle_sprites], 'grass', random_grass_image)
                         if style == 'deco':
                             
                             surf = graphics['deco'][int(col)]
                             Tile((x,y), [self.visible_sprites, self.obstacle_sprites], 'deco', surf)
-
-
-
-        #         if col == 'x':
-        #             Tile((x,y), [self.visible_sprites, self.obstacle_sprites])
-        #         if col == 'p':
-        #             self.player = Player((x,y), [self.visible_sprites], self.obstacle_sprites)
-        self.player = Player((700,700), [self.visible_sprites], self.obstacle_sprites)
+        self.player = Player((700,800), [self.visible_sprites], self.obstacle_sprites)
 
     def run(self):
 
         # update and draw the game
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
-        # debug(self.player.direction)
+        debug(self.player.status)
 
 class YSortCameraGroup(pygame.sprite.Group):
     def __init__(self):
@@ -86,3 +76,7 @@ class YSortCameraGroup(pygame.sprite.Group):
         for sprite in sorted(self.sprites(), key = lambda sprite: sprite.rect.centery):
             offset_pos = sprite.rect.topleft - self.offset
             self.display_surface.blit(sprite.image, offset_pos)
+
+        surf = pygame.Surface((player.hitbox.width, player.hitbox.height))
+        surf.fill("black")
+        self.display_surface.blit(surf,(player.hitbox.topleft[0] - player.hitbox.centerx + self.half_width, player.hitbox.topleft[1] - player.hitbox.centery + self.half_height))

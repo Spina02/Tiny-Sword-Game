@@ -71,6 +71,7 @@
             "scaleInDock": 1
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees/Tree.tsx": {
@@ -111,8 +112,8 @@
             "scale": 0.75,
             "selectedLayer": 7,
             "viewCenter": {
-                "x": 798.6666666666666,
-                "y": 797.3333333333333
+                "x": 786.6666666666666,
+                "y": 785.3333333333333
             }
         },
         "tiny swords/Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Pawn_Purple.tsx": {
@@ -340,8 +341,8 @@
     ],
     "project": "Senza Titolo.tiled-project",
     "recentFiles": [
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Deco/deco.tsx",
         "World.tmx",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Deco/deco.tsx",
         "tiny swords/Tiny Swords (Update 010)/other/stop.tsx",
         "tiny swords/Tiny Swords (Update 010)/Resources/Trees/Tree.tsx",
         "tiny swords/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.tsx",
