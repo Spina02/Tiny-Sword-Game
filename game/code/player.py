@@ -3,29 +3,37 @@ from pygame.locals import *
 from settings import *
 
 class Player(pygame.sprite.Sprite):
+    """
+    Is one of the main classes of the project, it's the one who
+    manipulates the player.
+    #### Player(pos, groups, obstacles_sprites):
+    - @pos = is the initial position of the player
+    - @groups = is the sprite group to which this class should belong
+    - @obstacle_sprites = is the group of obstacles for this class
+    """
     def __init__(self, pos, groups, obstacles_sprites):
         super().__init__(groups) 
 
+        #? ---------- general settinges ------------
         self.n_frame = 1
         self.n_anim = 1
-        # load image
+
+        #? --------------- load image --------------
         self.images = None
-        #self.image = pygame.image.load("game/graphics/Factions/Knights/Buildings/House/House_Blue.png").convert_alpha()
-        self.image = self.img_init('game/graphics/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png', 6, 8).convert_alpha()
+        self.image = self.img_init(PLAYER_IMG, 6, 8).convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
-        # define hitbox
+
+        #? ------------- define hitbox -------------
         self.hitbox = pygame.Rect(self.rect.topleft[0], self.rect.topleft[1], 32, 20)
         hitbox_size = (45, 60)
-        self.hitbox_damage = pygame.Rect(0, 0, *hitbox_size)
-        self.hitbox_damage.midbottom = self.rect.midbottom
 
-        # graphic setup
+        #? ------------- graphic setup -------------
         self.import_player_assets()
         self.status = 'down'
         self.frame_index = 0
         self.nextFrame = pygame.time.get_ticks()
 
-        # movement
+        #? ---------------- movement ----------------
         self.direction = pygame.math.Vector2()
         self.speed = 2
         self.attacking = False
@@ -35,15 +43,28 @@ class Player(pygame.sprite.Sprite):
         self.obstacles_sprites = obstacles_sprites
 
     def import_player_assets(self):
-        charachter_path = 'game/graphics/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png'
-        self.animations = { # each tuple is (n_anim, flip), 
-                            # TODO: v_flip and h_flip -> (n_anim, v_flip, h_flip)
+        """
+            Defines animations as a dictionary:\n
+            -----
+            animations = {
+                "anim_name" : (int anim_idx, bool flip)
+            }.
+        """
+        self.animations = { #? -> each tuple is (n_anim, flip),
             'up_idle' : (0, 1),'down_idle' : (0, 0),'left_idle' : (0, 1),'right_idle' : (0, 0),
             'up': (1, 1), 'down' : (1,0), 'left' : (1,1), 'right': (1,0), 
             'up_attack' : (6,1), 'down_attack' : (2,0), 'left_attack' : (3,1), 'right_attack' : (3,0)
         }
 
     def img_init(self, image, n_frame, n_anim):
+        """
+        #### Initialize player image
+        ---
+        #### Parameters
+        - @image = filename of the image
+        - @n_frame = number of frame in a row of the image
+        - @n_anim = numbero of animations in a column of the image
+        """
         self.n_frame = n_frame
         self.n_anim = n_anim
         self.images = [[] for _ in range(self.n_anim)]
@@ -64,11 +85,21 @@ class Player(pygame.sprite.Sprite):
         return self.images[0][0]
         
     def changeImage(self, anim, flip = 0):
+        """
+        #### Changes the image of the sprite to the one specified
+        ---
+        #### Parameters:
+        - @anim = the animation index in the image
+        - @flip = 1 if the image needs to be flipped horizontally [default = 0]
+        """
         self.currentImage = (anim, self.frame_index)
         self.image = pygame.transform.flip(self.images[anim][self.frame_index], flip, 0)
         self.mask = pygame.mask.from_surface(self.image)
 
     def input(self):
+        """
+        manages the inputs on keyboard
+        """
         keys = pygame.key.get_pressed()
 
         if not self.attacking:
@@ -98,12 +129,19 @@ class Player(pygame.sprite.Sprite):
 
         
     def get_status(self):
+        """
+        Manages player status:
+        - idle
+        - movement
+        - attack
+        - ...
+        """
         # idle status
         if self.direction.x == 0 == self.direction.y:
             if not 'idle' in self.status and not 'attack' in self.status:
                 self.status += '_idle'
                 self.frame_index = 0
-
+        # attacking status
         if self.attacking:
             self.direction.x = 0
             self.direction.y = 0
@@ -113,12 +151,16 @@ class Player(pygame.sprite.Sprite):
                 else:
                     self.status += '_attack'
                 self.frame_index = 0
+        # any other status
         else:
             if 'attack' in self.status:
                 self.status = self.status.replace('_attack', '')
                 #self.frame_index = 0
 
-    def move(self, speed):       
+    def move(self, speed):    
+        """
+        Manages the movement of the player checking for collisions
+        """   
         if self.direction.magnitude() != 0:
             self.direction = self.direction.normalize()
         
@@ -128,23 +170,42 @@ class Player(pygame.sprite.Sprite):
         self.collision("vertical")
         self.rect.center = self.hitbox.center
 
+    def collide_mask_rect(self, hitbox_1, hitbox_2):
+        xoffset = hitbox_2.midleft[0] - hitbox_1.midleft[0]
+        yoffset = hitbox_2.midbottom[1] - hitbox_1.midbottom[1]
+        try:
+            leftmask = hitbox_1.mask
+        except AttributeError:
+            leftmask = pygame.mask.Mask(hitbox_1.size, True)
+        try:
+            rightmask = hitbox_2.mask
+        except AttributeError:
+            rightmask = pygame.mask.Mask(hitbox_2.size, True)
+        return leftmask.overlap(rightmask, (xoffset, yoffset))
+
     def collision(self, direction):
+        """
+        Manages the collisions
+        """
+        # TODO: implementare meglio le masks
+
         if direction == "horizontal":
             for sprite in self.obstacles_sprites:
-                if sprite.hitbox.colliderect(self.hitbox):
+                if self.collide_mask_rect(self.hitbox, sprite.hitbox): # check between rects converted to masks
+                #if sprite.hitbox.colliderect(self.hitbox): # check between rects
                     if self.direction.x > 0: # moving right
                         self.hitbox.right = sprite.hitbox.left
                     if self.direction.x < 0: # moving left
                         self.hitbox.left = sprite.hitbox.right
-        
         if direction == "vertical":
             for sprite in self.obstacles_sprites:
-                if sprite.hitbox.colliderect(self.hitbox):
+                if self.collide_mask_rect(self.hitbox, sprite.hitbox):
+                #if sprite.collide_mask(self.hitbox):
                     if self.direction.y > 0: # moving down
                         self.hitbox.bottom = sprite.hitbox.top
                     if self.direction.y < 0: # moving up
                         self.hitbox.top = sprite.hitbox.bottom
-
+                    
     def cooldowns(self):
         current_time = pygame.time.get_ticks()
         if self.attacking:

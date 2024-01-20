@@ -36,7 +36,6 @@ class Level:
                         if style == 'boundary':
                             Tile((x,y), [self.obstacle_sprites], 'invisible')
                         if style == 'deco':
-                            
                             surf = graphics['deco'][int(col)]
                             Tile((x,y), [self.visible_sprites, self.obstacle_sprites], 'deco', surf)
         self.player = Player((700,800), [self.visible_sprites], self.obstacle_sprites)
@@ -80,11 +79,10 @@ class YSortCameraGroup(pygame.sprite.Group):
                 offset_pos = sprite.rect.topleft - self.offset
             self.display_surface.blit(sprite.image, offset_pos)
 
-        #? debug hitbox
-        surf = pygame.Surface((player.hitbox_damage.width, player.hitbox_damage.height))
-        surf.fill("red")
-        self.display_surface.blit(surf,(player.hitbox_damage.topleft[0] - player.hitbox_damage.centerx + self.half_width, player.hitbox_damage.topleft[1] - player.hitbox_damage.centery + self.half_height))
-        
-        surf = pygame.Surface((player.hitbox.width, player.hitbox.height))
-        surf.fill("black")
-        self.display_surface.blit(surf,(player.hitbox.topleft[0] - player.hitbox.centerx + self.half_width, player.hitbox.topleft[1] - player.hitbox.centery + self.half_height))
+        #? --------------- debug hitbox ---------------
+        # surf = pygame.Surface((player.hitbox_damage.width, player.hitbox_damage.height))
+        # surf.fill("red")
+        # self.display_surface.blit(surf,(player.hitbox_damage.topleft[0] - player.hitbox_damage.centerx + self.half_width, player.hitbox_damage.topleft[1] - player.hitbox_damage.centery + self.half_height))
+        # surf = pygame.Surface((player.hitbox.width, player.hitbox.height))
+        # surf.fill("black")
+        # self.display_surface.blit(surf,(player.hitbox.topleft[0] - player.hitbox.centerx + self.half_width, player.hitbox.topleft[1] - player.hitbox.centery + self.half_height))
