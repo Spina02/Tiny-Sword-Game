@@ -38,3 +38,23 @@ Legenda: "-" non fatto, "X" fatto
 [-] Gestire la mira del colpo attraverso il puntatore del mouse
 [-] Aggiunta easter eggs --> entrando in un punto della mappa si entra nel gioco del matti (chi sa, sa)
 [-] Ottimizzare il codice
+
+video di riferimento:
+
+- Full tutorial (playlist)
+    https://youtube.com/playlist?list=PLsk-HSGFjnaGQq7ybM8Lgkh5EMxUWPm2i&si=YtMyjD_TcUa1AqRe
+
+- Zelda in python:
+    https://youtu.be/QU1pPzEGrqw?si=LIm2tiZb43bHJ1rx
+
+- Stardew Valley inspired game in python:
+    https://www.youtube.com/watch?v=T4IX36sP_0c
+
+- Mask in pygame:
+    https://youtu.be/tJiKYMQJnYg?si=SO2opBrYaSxXOAyq
+
+- Tiled:
+    https://youtu.be/N6xqCwblyiw?si=UGplPLKgmeQNeSGx
+    
+    - Automapping:
+        https://youtu.be/QXeCCvGgHhk?si=QVWKlQ_RS-4t5v9J

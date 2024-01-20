@@ -1,19 +1,228 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#000000" nextlayerid="33" nextobjectid="1">
  <editorsettings>
-  <export target="../map/map.csv" format="csv"/>
+  <chunksize width="25" height="25"/>
+  <export target="../map/World.csv" format="csv"/>
  </editorsettings>
- <tileset firstgid="1" source="../graphics/Terrain/Ground/Tilemap_Flat.tsx"/>
- <tileset firstgid="41" source="../graphics/Terrain/Ground/Tilemap_Elevation.tsx"/>
- <tileset firstgid="73" source="../graphics/Terrain/Bridge/Bridge_All.tsx"/>
- <tileset firstgid="85" source="../graphics/Terrain/Water/Water.tsx"/>
- <tileset firstgid="86" source="../graphics/Terrain/Water/Foam/Foam.tsx"/>
- <tileset firstgid="94" source="../graphics/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.tsx"/>
- <tileset firstgid="142" source="../graphics/Resources/Trees/Tree.tsx"/>
- <tileset firstgid="154" source="../graphics/Factions/Knights/Troops/Pawn/Pawn_Purple.tsx"/>
- <tileset firstgid="190" source="../graphics/other/stop.tsx"/>
- <tileset firstgid="191" source="../graphics/Terrain/Ground/Shadows.tsx"/>
- <tileset firstgid="206" source="../graphics/Deco/deco.tsx"/>
+ <tileset firstgid="1" name="Tilemap_Flat" tilewidth="64" tileheight="64" tilecount="40" columns="10">
+  <image source="../graphics/Terrain/Ground/Tilemap_Flat.png" width="640" height="256"/>
+ </tileset>
+ <tileset firstgid="41" name="Tilemap_Elevation" tilewidth="64" tileheight="64" tilecount="32" columns="4">
+  <image source="../graphics/Terrain/Ground/Tilemap_Elevation.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="73" name="Bridge_All" tilewidth="64" tileheight="64" tilecount="12" columns="3">
+  <image source="../graphics/Terrain/Bridge/Bridge_All.png" width="192" height="256"/>
+ </tileset>
+ <tileset firstgid="85" name="Water" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="../graphics/Terrain/Water/Water.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="86" name="Foam" tilewidth="192" tileheight="192" tilecount="8" columns="8">
+  <image source="../graphics/Terrain/Water/Foam/Foam.png" width="1536" height="192"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="4" duration="100"/>
+    <frame tileid="5" duration="100"/>
+    <frame tileid="6" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="94" name="Warrior_Blue" tilewidth="192" tileheight="192" tilecount="48" columns="6">
+  <image source="../graphics/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" width="1152" height="1536"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="4" duration="100"/>
+    <frame tileid="5" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="6">
+   <animation>
+    <frame tileid="6" duration="100"/>
+    <frame tileid="7" duration="100"/>
+    <frame tileid="8" duration="100"/>
+    <frame tileid="9" duration="100"/>
+    <frame tileid="10" duration="100"/>
+    <frame tileid="11" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="12">
+   <animation>
+    <frame tileid="12" duration="100"/>
+    <frame tileid="13" duration="100"/>
+    <frame tileid="14" duration="100"/>
+    <frame tileid="15" duration="100"/>
+    <frame tileid="16" duration="100"/>
+    <frame tileid="17" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="18">
+   <animation>
+    <frame tileid="18" duration="100"/>
+    <frame tileid="19" duration="100"/>
+    <frame tileid="20" duration="100"/>
+    <frame tileid="21" duration="100"/>
+    <frame tileid="22" duration="100"/>
+    <frame tileid="23" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="24">
+   <animation>
+    <frame tileid="24" duration="100"/>
+    <frame tileid="25" duration="100"/>
+    <frame tileid="26" duration="100"/>
+    <frame tileid="27" duration="100"/>
+    <frame tileid="28" duration="100"/>
+    <frame tileid="29" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="30">
+   <animation>
+    <frame tileid="30" duration="100"/>
+    <frame tileid="31" duration="100"/>
+    <frame tileid="32" duration="100"/>
+    <frame tileid="33" duration="100"/>
+    <frame tileid="34" duration="100"/>
+    <frame tileid="35" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="36">
+   <animation>
+    <frame tileid="36" duration="100"/>
+    <frame tileid="37" duration="100"/>
+    <frame tileid="38" duration="100"/>
+    <frame tileid="39" duration="100"/>
+    <frame tileid="40" duration="100"/>
+    <frame tileid="41" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="42">
+   <animation>
+    <frame tileid="42" duration="100"/>
+    <frame tileid="43" duration="100"/>
+    <frame tileid="44" duration="100"/>
+    <frame tileid="45" duration="100"/>
+    <frame tileid="46" duration="100"/>
+    <frame tileid="47" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="142" name="Tree" tilewidth="192" tileheight="192" tilecount="12" columns="4">
+  <image source="../graphics/Resources/Trees/Tree.png" width="768" height="576"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="5">
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="5" duration="100"/>
+    <frame tileid="3" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="154" name="Pawn_Purple" tilewidth="192" tileheight="192" tilecount="36" columns="6">
+  <image source="../graphics/Factions/Knights/Troops/Pawn/Purple/Pawn_Purple.png" width="1152" height="1152"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="4" duration="100"/>
+    <frame tileid="5" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="18">
+   <animation>
+    <frame tileid="18" duration="100"/>
+    <frame tileid="19" duration="100"/>
+    <frame tileid="20" duration="100"/>
+    <frame tileid="21" duration="100"/>
+    <frame tileid="22" duration="100"/>
+    <frame tileid="23" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="190" name="stop" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="../graphics/other/stop.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="191" name="Shadows" tilewidth="64" tileheight="64" tilecount="15" columns="5">
+  <image source="../graphics/Terrain/Ground/Shadows.png" width="320" height="192"/>
+ </tileset>
+ <tileset firstgid="206" name="deco" tilewidth="320" tileheight="256" tilecount="19" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="64" height="64" source="../graphics/Deco/01.png"/>
+  </tile>
+  <tile id="1">
+   <image width="64" height="64" source="../graphics/Deco/02.png"/>
+  </tile>
+  <tile id="2">
+   <image width="64" height="64" source="../graphics/Deco/03.png"/>
+  </tile>
+  <tile id="3">
+   <image width="64" height="64" source="../graphics/Deco/04.png"/>
+  </tile>
+  <tile id="4">
+   <image width="64" height="64" source="../graphics/Deco/05.png"/>
+  </tile>
+  <tile id="5">
+   <image width="64" height="64" source="../graphics/Deco/06.png"/>
+  </tile>
+  <tile id="6">
+   <image width="64" height="64" source="../graphics/Deco/07.png"/>
+  </tile>
+  <tile id="7">
+   <image width="64" height="64" source="../graphics/Deco/08.png"/>
+  </tile>
+  <tile id="8">
+   <image width="64" height="64" source="../graphics/Deco/09.png"/>
+  </tile>
+  <tile id="9">
+   <image width="64" height="64" source="../graphics/Deco/10.png"/>
+  </tile>
+  <tile id="10">
+   <image width="64" height="64" source="../graphics/Deco/11.png"/>
+  </tile>
+  <tile id="11">
+   <image width="64" height="64" source="../graphics/Deco/12.png"/>
+  </tile>
+  <tile id="12">
+   <image width="64" height="64" source="../graphics/Deco/13.png"/>
+  </tile>
+  <tile id="13">
+   <image width="64" height="64" source="../graphics/Deco/14.png"/>
+  </tile>
+  <tile id="14">
+   <image width="64" height="64" source="../graphics/Deco/15.png"/>
+  </tile>
+  <tile id="15">
+   <image width="64" height="128" source="../graphics/Deco/16.png"/>
+  </tile>
+  <tile id="16">
+   <image width="64" height="128" source="../graphics/Deco/17.png"/>
+  </tile>
+  <tile id="17">
+   <image width="192" height="192" source="../graphics/Deco/18.png"/>
+  </tile>
+  <tile id="18">
+   <image width="320" height="256" source="../graphics/Deco/Castle_Blue.png"/>
+  </tile>
+ </tileset>
  <layer id="6" name="sea" width="25" height="25">
   <data encoding="csv">
 85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,
@@ -112,7 +321,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,196,0,0,0,198,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,198,196,0,0,0,198,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,84,84,0,0,0,198,0,0,0,
 0,0,0,0,0,0,0,0,196,0,0,0,0,0,0,197,198,196,197,0,197,198,0,0,0,
 0,0,0,0,0,0,0,0,196,0,0,0,0,0,194,202,0,0,202,202,202,0,0,0,0,
 0,0,0,0,0,0,0,0,196,197,0,0,0,197,198,0,0,0,0,0,0,0,0,0,0,
@@ -246,7 +455,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="16" name="Tree" width="25" height="25" visible="0">
+ <layer id="16" name="tree" width="25" height="25">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

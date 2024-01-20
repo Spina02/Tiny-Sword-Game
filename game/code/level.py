@@ -41,13 +41,17 @@ class Level:
         self.player = Player((700,800), [self.visible_sprites], self.obstacle_sprites)
 
     def run(self):
-
-        # update and draw the game
+        """
+        update and draw the game
+        """
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
         debug(self.player.status)
 
 class YSortCameraGroup(pygame.sprite.Group):
+    """
+    Class of object sorted by 'y' to create camera
+    """
     def __init__(self):
 
         #general setup
@@ -62,6 +66,9 @@ class YSortCameraGroup(pygame.sprite.Group):
         self.floor_rect = self.floor_surf.get_rect(topleft = (0,0))
 
     def custom_draw(self, player):
+        """
+        Draws the images on screen, keeping the camera centred on player
+        """
 
         # getting offset
         self.offset.x = player.rect.centerx - self.half_width

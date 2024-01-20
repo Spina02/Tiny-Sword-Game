@@ -171,6 +171,10 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = self.hitbox.center
 
     def collide_mask_rect(self, hitbox_1, hitbox_2):
+        """
+        turns the two rects given in input into masks before
+        checking for collisions
+        """
         xoffset = hitbox_2.midleft[0] - hitbox_1.midleft[0]
         yoffset = hitbox_2.midbottom[1] - hitbox_1.midbottom[1]
         try:
@@ -207,6 +211,9 @@ class Player(pygame.sprite.Sprite):
                         self.hitbox.top = sprite.hitbox.bottom
                     
     def cooldowns(self):
+        """
+        Define cooldowns for actions as 'attack'
+        """
         current_time = pygame.time.get_ticks()
         if self.attacking:
             if current_time - self.attack_time >= self.attack_cooldown:
@@ -214,6 +221,9 @@ class Player(pygame.sprite.Sprite):
                 self.frame_index = 0
 
     def animate(self):
+        """
+        Animates the player managing frames
+        """
         (animation, flip) = self.animations[self.status]
         if pygame.time.get_ticks() > self.nextFrame:
             self.frame_index = (self.frame_index + 1) % (self.n_frame)
@@ -223,7 +233,9 @@ class Player(pygame.sprite.Sprite):
             self.rect = self.image.get_rect(center = (self.hitbox.centerx, self.hitbox.centery))
 
     def update(self):
-        # update and draw the game
+        """
+        Update and draw the game
+        """
         self.input()
         self.cooldowns()
         self.get_status()
