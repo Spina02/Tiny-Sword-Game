@@ -5,26 +5,26 @@
     },
     "activeFile": "World.tmx",
     "expandedProjectPaths": [
-        "tiny swords/Tiny Swords (Update 010)/Resources",
+        "tiny swords/Tiny Swords (Update 010)",
+        "tiny swords/Tiny Swords (Update 010)/UI/Icons",
+        "tiny swords/Tiny Swords (Update 010)/UI",
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops",
-        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights",
+        "tiny swords",
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons",
+        "tiny swords/Tiny Swords (Update 010)/Resources",
         "tiny swords/Tiny Swords (Update 010)/Terrain/Ground",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Warrior/Blue",
-        "tiny swords/Tiny Swords (Update 010)/Resources/Trees",
-        "tiny swords/Tiny Swords (Update 010)/UI/Buttons",
-        "tiny swords/Tiny Swords (Update 010)/UI/Banners",
-        "tiny swords/Tiny Swords (Update 010)/Terrain",
-        "tiny swords/Tiny Swords (Update 010)/UI/Icons",
-        "tiny swords/Tiny Swords (Update 010)",
-        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions",
-        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Deco",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics",
-        ".",
-        "tiny swords",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions",
         "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops/Pawn",
-        "tiny swords/Tiny Swords (Update 010)/UI"
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights",
+        ".",
+        "tiny swords/Tiny Swords (Update 010)/Terrain",
+        "tiny swords/Tiny Swords (Update 010)/Resources/Trees",
+        "tiny swords/Tiny Swords (Update 010)/UI/Banners",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Deco",
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics"
     ],
     "file.lastUsedOpenFilter": "Tutti i file (*)",
     "fileStates": {
@@ -117,8 +117,8 @@
             "scale": 0.75,
             "selectedLayer": 8,
             "viewCenter": {
-                "x": 565.3333333333333,
-                "y": 776
+                "x": 852,
+                "y": 774.6666666666666
             }
         },
         "World.tmx#Bridge_All": {

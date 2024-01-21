@@ -4,8 +4,7 @@ from settings import *
 
 class Player(pygame.sprite.Sprite):
     """
-    Is one of the main classes of the project, it's the one who
-    manipulates the player.
+    Is one of the main classes of the project, it deals the manipulation the player.
     #### Player(pos, groups, obstacles_sprites):
     - @pos = is the initial position of the player
     - @groups = is the sprite group to which this class should belong
@@ -25,7 +24,7 @@ class Player(pygame.sprite.Sprite):
 
         #? ------------- define hitbox -------------
         self.hitbox = pygame.Rect(self.rect.topleft[0], self.rect.topleft[1], 32, 20)
-        hitbox_size = (45, 60)
+        #hitbox_size = (45, 60)
 
         #? ------------- graphic setup -------------
         self.import_player_assets()
@@ -195,16 +194,16 @@ class Player(pygame.sprite.Sprite):
 
         if direction == "horizontal":
             for sprite in self.obstacles_sprites:
-                if self.collide_mask_rect(self.hitbox, sprite.hitbox): # check between rects converted to masks
-                #if sprite.hitbox.colliderect(self.hitbox): # check between rects
+                #if self.collide_mask_rect(self.hitbox, sprite.hitbox): # check between rects converted to masks
+                if sprite.hitbox.colliderect(self.hitbox): # check between rects
                     if self.direction.x > 0: # moving right
                         self.hitbox.right = sprite.hitbox.left
                     if self.direction.x < 0: # moving left
                         self.hitbox.left = sprite.hitbox.right
         if direction == "vertical":
             for sprite in self.obstacles_sprites:
-                if self.collide_mask_rect(self.hitbox, sprite.hitbox):
-                #if sprite.collide_mask(self.hitbox):
+                #if self.collide_mask_rect(self.hitbox, sprite.hitbox):
+                if sprite.hitbox.colliderect(self.hitbox):
                     if self.direction.y > 0: # moving down
                         self.hitbox.bottom = sprite.hitbox.top
                     if self.direction.y < 0: # moving up
