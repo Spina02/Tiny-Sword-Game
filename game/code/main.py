@@ -15,13 +15,15 @@ class Game:
         self.level = Level()
 
     def run(self):
+        """
+        The game loop
+        """
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-
-            self.screen.fill("black")  
+            self.screen.fill((0, 244, 240, 1))  
             self.level.run()
             pygame.display.update()
             self.clock.tick(FPS)
