@@ -23,7 +23,7 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-            self.screen.fill((0, 244, 240, 1))  
+            self.screen.fill((71, 171, 169, 1))  
             self.level.run()
             pygame.display.update()
             self.clock.tick(FPS)
@@ -31,4 +31,5 @@ class Game:
 if __name__ == "__main__":
     game = Game()
     game.run()
+    
     

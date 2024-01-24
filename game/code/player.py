@@ -5,12 +5,12 @@ from settings import *
 class Player(pygame.sprite.Sprite):
     """
     Is one of the main classes of the project, it deals the manipulation the player.
-    #### Player(pos, groups, obstacles_sprites):
+    #### Player(pos, groups, obstacle_sprites):
     - @pos = is the initial position of the player
     - @groups = is the sprite group to which this class should belong
-    - @obstacle_sprites = is the group of obstacles for this class
+    - @obstacle_sprites = is the group of obstacle for this class
     """
-    def __init__(self, pos, groups, obstacles_sprites):
+    def __init__(self, pos, groups, obstacle_sprites):
         super().__init__(groups) 
 
         #? ---------- general settinges ------------
@@ -39,7 +39,7 @@ class Player(pygame.sprite.Sprite):
         self.attack_cooldown = 500
         self.attack_time = None
 
-        self.obstacles_sprites = obstacles_sprites
+        self.obstacle_sprites = obstacle_sprites
 
     def import_player_assets(self):
         """
@@ -97,7 +97,8 @@ class Player(pygame.sprite.Sprite):
 
     def input(self):
         """
-        manages the inputs on keyboard
+
+        manages the inputs from keyboard
         """
         keys = pygame.key.get_pressed()
 
@@ -193,7 +194,7 @@ class Player(pygame.sprite.Sprite):
         # TODO: implementare meglio le masks
 
         if direction == "horizontal":
-            for sprite in self.obstacles_sprites:
+            for sprite in self.obstacle_sprites:
                 #if self.collide_mask_rect(self.hitbox, sprite.hitbox): # check between rects converted to masks
                 if sprite.hitbox.colliderect(self.hitbox): # check between rects
                     if self.direction.x > 0: # moving right
@@ -201,7 +202,7 @@ class Player(pygame.sprite.Sprite):
                     if self.direction.x < 0: # moving left
                         self.hitbox.left = sprite.hitbox.right
         if direction == "vertical":
-            for sprite in self.obstacles_sprites:
+            for sprite in self.obstacle_sprites:
                 #if self.collide_mask_rect(self.hitbox, sprite.hitbox):
                 if sprite.hitbox.colliderect(self.hitbox):
                     if self.direction.y > 0: # moving down

@@ -43,6 +43,9 @@
     ],
     "file.lastUsedOpenFilter": "Tutti i file (*)",
     "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
         "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops/Pawn/Pawn_Purple.tsx": {
             "scaleInDock": 1
         },
@@ -214,8 +217,8 @@
             "scale": 0.75,
             "selectedLayer": 8,
             "viewCenter": {
-                "x": 667.3333333333333,
-                "y": 751.9999999999999
+                "x": 663.3333333333333,
+                "y": 739.9999999999999
             }
         },
         "World.tmx#Bridge_All": {
@@ -467,12 +470,12 @@
         }
     },
     "frame.defaultDuration": 100,
-    "last.exportedFilePath": "/home/andrea/Scrivania/Tiny-Sword-Game/game/map",
+    "last.exportedFilePath": "/home/andrea/Scrivania/Tiny-Sword-Game/game/data",
     "last.externalTilesetPath": "/home/andrea/Scrivania/Coding/python/game/graphics/Resources/Trees",
     "last.imagePath": "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees",
     "map.fixedSize": true,
     "map.height": 3,
-    "map.lastUsedExportFilter": "File CSV (*.csv)",
+    "map.lastUsedExportFilter": "File Mappa Tiled (*.tmx *.xml)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 64,
     "map.tileWidth": 64,
@@ -483,8 +486,8 @@
     ],
     "project": "Senza Titolo.tiled-project",
     "recentFiles": [
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees/Tree.tsx",
         "World.tmx",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees/Tree.tsx",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Left.tsx",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Right.tsx",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Up.tsx",

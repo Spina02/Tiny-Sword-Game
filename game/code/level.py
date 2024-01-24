@@ -127,10 +127,13 @@ class YSortCameraGroup(pygame.sprite.Group):
                     offsety = 0
                     if layer == self.tmx_data.get_layer_by_name("sea"):
                         pass
+                    #elif layer == self.tmx_data.get_layer_by_name("bounds"):
+                    #    for x, y, bound in layer:                                  #! non funziona
+                    #        Tile((x,y), [player.obstacle_sprites], 'invisible')
                     else:
                         #if layer == self.tmx_data.get_layer_by_name("foam"):
-                        for gid, props in self.tmx_data.tile_properties.items():
-                            if props['frames'] and tile == self.tmx_data.get_tile_image_by_gid(props['frames'][0].gid):
+                        for gid_, props in self.tmx_data.tile_properties.items():
+                            if gid == gid_ and props['frames'] and tile == self.tmx_data.get_tile_image_by_gid(props['frames'][0].gid):
                                 tile = self.tmx_data.get_tile_image_by_gid(props['frames'][self.frame_index%len(props["frames"])].gid)
                         #if layer != self.tmx_data.get_layer_by_name("deco"): #and layer != self.tmx_data.get_layer_by_name("tree"):
                         #? manage oversized tiles
@@ -140,6 +143,7 @@ class YSortCameraGroup(pygame.sprite.Group):
                         offset_pos = (x*tmx_data.tilewidth, y*tmx_data.tileheight) - self.offset
                         self.display_surface.blit(tile, (offset_pos[0], offset_pos[1] - offsety))
     #?-----------------------------------------------------------------------------------
+        
 
         for sprite in sorted(self.sprites(), key = lambda sprite: sprite.hitbox.bottom):
             if sprite == player:
