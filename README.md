@@ -1,6 +1,6 @@
-# Pixel Farm Adventure
+# Tiny Sword Game
 
-Pixel Farm Adventure is a 2.5D farming and adventure game. Developed using Python and Pygame, this project aims to blend engaging farming mechanics with exploration and combat, set in a vibrant pixel art world.
+Tiny Sword Game is a 2.5D farming and adventure game. Developed using Python and Pygame, this project aims to blend engaging farming mechanics with exploration and combat, set in a vibrant pixel art world.
 
 ## Project Status
 
