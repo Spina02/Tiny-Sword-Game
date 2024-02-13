@@ -10,7 +10,7 @@ class Player(pygame.sprite.Sprite):
     - @groups = is the sprite group to which this class should belong
     - @obstacle_sprites = is the group of obstacle for this class
     """
-    def __init__(self, pos, groups, obstacle_sprites):
+    def __init__(self, pos, groups, obstacle_sprites, tree_sprites, z = LAYERS['main']):
         super().__init__(groups) 
 
         #? ---------- general settinges ------------
@@ -27,6 +27,7 @@ class Player(pygame.sprite.Sprite):
         #hitbox_size = (45, 60)
 
         #? ------------- graphic setup -------------
+        self.z = z
         self.import_player_assets()
         self.status = 'down'
         self.frame_index = 0
@@ -34,7 +35,7 @@ class Player(pygame.sprite.Sprite):
 
         #? ---------------- movement ----------------
         self.direction = pygame.math.Vector2()
-        self.speed = (0.5*FPS//30)
+        self.speed = (3)
         self.attacking = False
         self.attack_cooldown = 500
         self.attack_time = None
@@ -100,23 +101,29 @@ class Player(pygame.sprite.Sprite):
 
         manages the inputs from keyboard
         """
+        mouse = pygame.mouse.get_pos()
         keys = pygame.key.get_pressed()
+        
 
         if not self.attacking:
             # movement input
-            if keys[K_UP]:
+            #if keys[K_UP]:
+            if keys[K_w]:
                 self.direction.y = -1
                 self.status = 'up'
-            elif keys[K_DOWN]:
+            #elif keys[K_DOWN]:
+            elif keys[K_s]:
                 self.direction.y = 1
                 self.status = 'down'
             else:
                 self.direction.y = 0
             
-            if keys[K_RIGHT]:
+            #if keys[K_RIGHT]:
+            if keys[K_d]:
                 self.direction.x = 1
                 self.status = 'right'
-            elif keys[K_LEFT]:
+            #elif keys[K_LEFT]:
+            elif keys[K_a]:
                 self.direction.x = -1
                 self.status = 'left'
             else:
@@ -170,23 +177,6 @@ class Player(pygame.sprite.Sprite):
         self.collision("vertical")
         self.rect.center = self.hitbox.center
 
-    def collide_mask_rect(self, hitbox_1, hitbox_2):
-        """
-        turns the two rects given in input into masks before
-        checking for collisions
-        """
-        xoffset = hitbox_2.midleft[0] - hitbox_1.midleft[0]
-        yoffset = hitbox_2.midbottom[1] - hitbox_1.midbottom[1]
-        try:
-            leftmask = hitbox_1.mask
-        except AttributeError:
-            leftmask = pygame.mask.Mask(hitbox_1.size, True)
-        try:
-            rightmask = hitbox_2.mask
-        except AttributeError:
-            rightmask = pygame.mask.Mask(hitbox_2.size, True)
-        return leftmask.overlap(rightmask, (xoffset, yoffset))
-
     def collision(self, direction):
         """
         Manages the collisions
@@ -195,15 +185,13 @@ class Player(pygame.sprite.Sprite):
 
         if direction == "horizontal":
             for sprite in self.obstacle_sprites:
-                #if self.collide_mask_rect(self.hitbox, sprite.hitbox): # check between rects converted to masks
-                if sprite.hitbox.colliderect(self.hitbox): # check between rects
+               if sprite.hitbox.colliderect(self.hitbox): # check between rects
                     if self.direction.x > 0: # moving right
                         self.hitbox.right = sprite.hitbox.left
                     if self.direction.x < 0: # moving left
                         self.hitbox.left = sprite.hitbox.right
         if direction == "vertical":
             for sprite in self.obstacle_sprites:
-                #if self.collide_mask_rect(self.hitbox, sprite.hitbox):
                 if sprite.hitbox.colliderect(self.hitbox):
                     if self.direction.y > 0: # moving down
                         self.hitbox.bottom = sprite.hitbox.top

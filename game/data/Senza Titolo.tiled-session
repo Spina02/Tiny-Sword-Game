@@ -5,41 +5,43 @@
     },
     "activeFile": "World.tmx",
     "expandedProjectPaths": [
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops/TNT/Red",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Warrior",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops/Torch",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops/Torch/Blue",
+        "tiny swords/Tiny Swords (Update 010)/UI/Banners",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Warrior/Blue",
+        "tiny swords",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain",
         "tiny swords/Tiny Swords (Update 010)/UI",
         "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions",
-        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Archer + Bow",
-        "tiny swords",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins",
-        "tiny swords/Tiny Swords (Update 010)/Terrain",
-        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners",
-        "tiny swords/Tiny Swords (Update 010)/UI/Banners",
-        ".",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Purple",
-        "tiny swords/Tiny Swords (Update 010)/Resources",
-        "tiny swords/Tiny Swords (Update 010)/UI/Icons",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Arrow",
-        "tiny swords/Tiny Swords (Update 010)/UI/Buttons",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI",
-        "tiny swords/Tiny Swords (Update 010)/Resources/Trees",
-        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops/Pawn",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Warrior/Blue",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops/TNT",
-        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer",
-        "tiny swords/Tiny Swords (Update 010)"
+        ".",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics",
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights/Troops/Pawn",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Buttons",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops/TNT",
+        "tiny swords/Tiny Swords (Update 010)",
+        "tiny swords/Tiny Swords (Update 010)/Terrain",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Warrior",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Resources",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops/TNT/Red",
+        "tiny swords/Tiny Swords (Update 010)/Terrain/Ground",
+        "tiny swords/Tiny Swords (Update 010)/Resources",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Purple",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops/Torch/Blue",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights",
+        "tiny swords/Tiny Swords (Update 010)/UI/Icons",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Archer + Bow",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Ground",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners",
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees",
+        "tiny swords/Tiny Swords (Update 010)/Resources/Trees",
+        "tiny swords/Tiny Swords (Update 010)/UI/Buttons",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Arrow",
+        "/home/andrea/Scrivania/Coding/python/game/graphics/Factions/Knights"
     ],
     "file.lastUsedOpenFilter": "Tutti i file (*)",
     "fileStates": {
@@ -105,6 +107,21 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Buildings/Castle/Castle.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Buildings/House/House.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Buildings/Tower/Tower.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Archer + Bow/Archer_Blue_(NoArms).tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
@@ -126,13 +143,19 @@
             "scaleInEditor": 1
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Resources/GoldMine_Active.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInEditor": 0.75
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees/Tree.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInEditor": 0.75
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees/Trees.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.75
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees/tree.tsx": {
             "dynamicWrapping": true,
@@ -143,24 +166,53 @@
             "scaleInDock": 1
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Ground/Shadows.tsx": {
-            "scaleInDock": 1
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.75
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Ground/Tilemap_Elevation.tsx": {
-            "scaleInDock": 1
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.75
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Ground/Tilemap_Flat.tsx": {
-            "scaleInDock": 0.33
+            "dynamicWrapping": false,
+            "scaleInDock": 0.33,
+            "scaleInEditor": 0.75
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Foam/Foam.tsx": {
             "scaleInDock": 1
         },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks/Rocks_01.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks/Rocks_02.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks/Rocks_03.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks/Rocks_04.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks_03.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Water.tsx": {
-            "scaleInDock": 1
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Down.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInEditor": 2
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Left.tsx": {
             "dynamicWrapping": false,
@@ -168,10 +220,16 @@
             "scaleInEditor": 1
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Right.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Up.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Horizontal.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
@@ -185,6 +243,7 @@
             "scaleInEditor": 1
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Carved_9Slides.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -192,11 +251,25 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Buttons/Button_Blue_3Slides.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Buttons/Button_Blue_3Slides_Pressed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Buttons/Button_Blue_9Slides_Pressed.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Buttons/Button_Hover_3Slides.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Buttons/ciao.tsx": {
+            "dynamicWrapping": true,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -206,19 +279,26 @@
         ":/automap-tiles.tsx": {
             "scaleInDock": 1
         },
+        "Rocks_04.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "Shadows.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "World.tmx": {
             "expandedGroupLayers": [
-                14
+                34,
+                14,
+                33
             ],
             "scale": 0.75,
-            "selectedLayer": 8,
+            "selectedLayer": 11,
             "viewCenter": {
-                "x": 663.3333333333333,
-                "y": 739.9999999999999
+                "x": 2772,
+                "y": 2594.6666666666665
             }
         },
         "World.tmx#Bridge_All": {
@@ -234,12 +314,16 @@
             "scaleInDock": 1
         },
         "World.tmx#Shadows": {
-            "scaleInDock": 1
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "World.tmx#Tilemap_Elevation": {
+            "dynamicWrapping": false,
             "scaleInDock": 1
         },
         "World.tmx#Tilemap_Flat": {
+            "dynamicWrapping": false,
             "scaleInDock": 1
         },
         "World.tmx#Tree": {
@@ -255,7 +339,7 @@
         },
         "World.tmx#deco": {
             "dynamicWrapping": true,
-            "scaleInDock": 1
+            "scaleInDock": 0.25
         },
         "World.tmx#stop": {
             "scaleInDock": 1
@@ -471,8 +555,8 @@
     },
     "frame.defaultDuration": 100,
     "last.exportedFilePath": "/home/andrea/Scrivania/Tiny-Sword-Game/game/data",
-    "last.externalTilesetPath": "/home/andrea/Scrivania/Coding/python/game/graphics/Resources/Trees",
-    "last.imagePath": "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees",
+    "last.externalTilesetPath": "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Ground",
+    "last.imagePath": "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Gold Mine",
     "map.fixedSize": true,
     "map.height": 3,
     "map.lastUsedExportFilter": "File Mappa Tiled (*.tmx *.xml)",
@@ -486,23 +570,23 @@
     ],
     "project": "Senza Titolo.tiled-project",
     "recentFiles": [
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks_03.tsx",
         "World.tmx",
         "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Resources/Trees/Tree.tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Left.tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Right.tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Up.tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/UI/Banners/Banner_Connection_Down.tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Archer + Bow/Archer_Bow_Purple.tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Archer + Bow/Archer_Blue_(NoArms).tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Archer/Purple/Archer_Purlple.tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Goblins/Troops/TNT/Red/TNT_Red.tsx",
-        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.tsx"
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks/Rocks_04.tsx",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks/Rocks_03.tsx",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks/Rocks_02.tsx",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Rocks/Rocks_01.tsx",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Water/Water.tsx",
+        "Rocks_04.tsx",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Terrain/Ground/Shadows.tsx",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Buildings/Castle/Castle.tsx",
+        "/home/andrea/Scrivania/Tiny-Sword-Game/game/graphics/Factions/Knights/Buildings/House/House.tsx"
     ],
     "tileset.lastUsedFilter": "File Tileset Tiled (*.tsx *.xml)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 192,
+        "height": 128,
         "width": 192
     },
     "tileset.type": 0
