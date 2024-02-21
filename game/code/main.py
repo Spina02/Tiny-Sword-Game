@@ -16,7 +16,7 @@ class Game:
 
     def run(self):
         """
-        The game loop
+                The game loop
         """
         while True:
             for event in pygame.event.get():
@@ -33,4 +33,4 @@ if __name__ == "__main__":
     game.run()
     
 
-    
+4    

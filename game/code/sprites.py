@@ -34,7 +34,7 @@ class Bound(Generic):
 class Building(Generic):
     def __init__(self, pos, surf, groups):
         super().__init__(pos, surf, groups)
-        self.hitbox = self.rect.inflate(-10,-self.rect.height*0.60)
+        self.hitbox = self.rect.inflate(-10,-self.rect.height*0.20)
 
 class Tree(Generic):
     def __init__(self, pos, surf, groups, gid):
