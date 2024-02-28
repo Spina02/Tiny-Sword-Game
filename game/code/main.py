@@ -1,29 +1,29 @@
 import pygame, sys, os
 from pygame.locals import *
 from settings import *
+from gui import *
 from level import Level
+import pyautogui
 
 class Game:
     def __init__(self):
 
         # general setup
         pygame.init()
-        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.screen = pygame.display.set_mode(pyautogui.size(), pygame.FULLSCREEN | pygame.HWSURFACE | pygame.SCALED, vsync=1)
         pygame.display.set_caption("game")
         self.clock = pygame.time.Clock()
-
         self.level = Level()
 
     def run(self):
         """
-                The game loop
+        The game loop
         """
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-            #self.screen.fill((71, 171, 169, 1))  
             self.level.run()
             pygame.display.update()
             self.clock.tick(FPS)
@@ -31,6 +31,3 @@ class Game:
 if __name__ == "__main__":
     game = Game()
     game.run()
-    
-
-4    

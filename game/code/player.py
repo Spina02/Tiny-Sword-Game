@@ -35,7 +35,7 @@ class Player(pygame.sprite.Sprite):
 
         #? ---------------- movement ----------------
         self.direction = pygame.math.Vector2()
-        self.speed = (3)
+        self.speed = 3
         self.attacking = False
         self.attack_cooldown = 500
         self.attack_time = None
@@ -48,7 +48,8 @@ class Player(pygame.sprite.Sprite):
             -----
             animations = {
                 "anim_name" : (int anim_idx, bool flip)
-            }.
+                ...
+            }
         """
         self.animations = { #? -> each tuple is (n_anim, flip),
             'up_idle' : (0, 1),'down_idle' : (0, 0),'left_idle' : (0, 1),'right_idle' : (0, 0),
@@ -61,9 +62,9 @@ class Player(pygame.sprite.Sprite):
         #### Initialize player image
         ---
         #### Parameters
-        - @image = filename of the image
-        - @n_frame = number of frame in a row of the image
-        - @n_anim = numbero of animations in a column of the image
+        - image = filename of the image
+        - n_frame = number of frame in a row of the image
+        - n_anim = numbero of animations in a column of the image
         """
         self.n_frame = n_frame
         self.n_anim = n_anim
@@ -89,8 +90,8 @@ class Player(pygame.sprite.Sprite):
         #### Changes the image of the sprite to the one specified
         ---
         #### Parameters:
-        - @anim = the animation index in the image
-        - @flip = 1 if the image needs to be flipped horizontally [default = 0]
+        - anim = the animation index in the image
+        - flip = 1 if the image needs to be flipped horizontally [default = 0]
         """
         self.currentImage = (anim, self.frame_index)
         self.image = pygame.transform.flip(self.images[anim][self.frame_index], flip, 0)
@@ -98,15 +99,17 @@ class Player(pygame.sprite.Sprite):
 
     def input(self):
         """
-
         manages the inputs from keyboard
         """
-        mouse = pygame.mouse.get_pos()
         keys = pygame.key.get_pressed()
         
 
         if not self.attacking:
             # movement input
+            if keys[K_LCTRL]:
+                self.speed = 4
+            else:
+                self.speed = 3
             #if keys[K_UP]:
             if keys[K_w]:
                 self.direction.y = -1

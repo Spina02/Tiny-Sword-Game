@@ -7,6 +7,7 @@ from support import *
 from pytmx.util_pygame import load_pygame
 from sprites import *
 import pytmx
+from gui import Cursor
 
 class Level:
     def __init__(self):
@@ -69,7 +70,6 @@ class Level:
                 offsety = TILESIZE*(build.get_height()//TILESIZE-1)
                 Building((obj.x, obj.y), obj.image, [self.all_sprites, self.obstacle_sprites])
 
-                
         ## sprites
         #for x, y, gid in self.tmx_data.get_layer_by_name('sprites'):
         #    sprite = ti(gid)
@@ -98,14 +98,15 @@ class Level:
         self.display_surface.fill((71, 171, 169, 1)) ## paints sea
         self.all_sprites.custom_draw(self.player)
 
-        # managing foam frames
+        # managing animated frames
         if pygame.time.get_ticks() > self.nextFrame:
             self.frame_index = self.frame_index + 1
             self.nextFrame += 100
 
-            for gid, props in self.tmx_data.tile_properties.items():
-                for sprite in self.all_sprites:
-                    if hasattr(sprite, 'gid') and sprite.gid == gid and props['frames'] and sprite.image == ti(props['frames'][(self.frame_index-1)%len(props["frames"])].gid):
+            for sprite in self.all_sprites:
+                if hasattr(sprite, 'gid'):
+                    props = self.tmx_data.get_tile_properties_by_gid(sprite.gid)
+                    if props and props['frames'] and sprite.image == ti(props['frames'][(self.frame_index-1)%len(props["frames"])].gid):
                         sprite.image = ti(props['frames'][self.frame_index%len(props["frames"])].gid)
 
         self.all_sprites.update()
@@ -116,6 +117,7 @@ class YSortCameraGroup(pygame.sprite.Group):
         super().__init__()
         self.display_surface = pygame.display.get_surface()
         self.offset = pygame.math.Vector2()
+        self.cursor = Cursor()
 
     def custom_draw(self, player):
         self.offset.x = player.rect.centerx - WIDTH / 2
@@ -124,15 +126,11 @@ class YSortCameraGroup(pygame.sprite.Group):
         for layer in LAYERS.values():
             for sprite in sorted(self.sprites(), key=lambda sprite: sprite.hitbox.bottom):
                 if sprite.z == layer:
-                    offset_rect = sprite.rect.copy()
-                    offset_rect.center -= self.offset
-                    
-                    offset_pos = sprite.rect.topleft - self.offset
                     if sprite == player:
                         offset_pos = (sprite.rect.topleft[0], sprite.rect.topleft[1]-32) - self.offset
-
-                    self.display_surface.blit(sprite.image, (offset_pos[0], offset_pos[1]))
-
+                    else:
+                        offset_pos = sprite.rect.topleft - self.offset
+                    self.display_surface.blit(sprite.image, offset_pos)
 
                     # analytics
                     # if sprite.z == LAYERS['main']:
@@ -140,3 +138,6 @@ class YSortCameraGroup(pygame.sprite.Group):
                     #     hitbox_rect = sprite.hitbox.copy()
                     #     hitbox_rect.center = offset_rect.center
                     #     pygame.draw.rect(self.display_surface, 'green', hitbox_rect, 5)
+        
+        self.cursor.update()
+        self.display_surface.blit(self.cursor.cursor_img, self.cursor.cursor_rect) # draw the cursor
