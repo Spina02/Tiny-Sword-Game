@@ -5,161 +5,139 @@ from player import Player
 from debug import debug
 from support import *
 from pytmx.util_pygame import load_pygame
+from sprites import *
 import pytmx
+from gui import Cursor
 
 class Level:
     def __init__(self):
         # get the display surface
         self.display_surface = pygame.display.get_surface()
 
-        # sprite group setup
-        self.visible_sprites = YSortCameraGroup()
+        # sprite groups
+        self.all_sprites = YSortCameraGroup()
         self.obstacle_sprites = pygame.sprite.Group()
+        self.tree_sprites = pygame.sprite.Group()
+        # self.interaction_sprites = pygame.sprite.Group()
+
+        self.setup()
+        
+    def setup(self):
         self.tmx_data = load_pygame(WORLD_TMX)
-        self.create_map()
+        ti = self.tmx_data.get_tile_image_by_gid
 
-    def create_map(self):
-        layouts = {
-            'boundary' : import_csv_layout('game/map/map_bounds.csv'),
-        #    'deco' : import_csv_layout('game/map/map_deco.csv'),
-        #    'tree' : import_csv_layout('game/map/map_Tree.csv')
-        }
-        # graphics = {
-        #     #'grass' : import_folder('game/graphics/Terrain/...'),
-        #     'deco' : import_folder('game/graphics/Deco')
-        # }
-
-        for style, layout in layouts.items():
-            for row_index, row in enumerate(layout):
-                for col_index, col in enumerate(row):
-                    if col != '-1':
-                        x = col_index * TILESIZE
-                        y = row_index * TILESIZE
-                        if style == 'boundary':
-                            Tile((x,y), [self.obstacle_sprites], 'invisible')
-                        if style == 'tree':
-                            Tile((x,y), [self.visible_sprites, self.obstacle_sprites], 'tree')
-                        #if style == 'deco':
-                        #    surf = graphics['deco'][int(col)]
-                        #    Tile((x,y), [self.visible_sprites], 'deco', surf) #self.obstacle_sprites], 'deco', surf)
-        
-        self.player = Player((700,800), [self.visible_sprites], self.obstacle_sprites)
-        
-
-    def run(self):
-        """
-        update and draw the game
-        """
-        #self.visible_sprites.custom_draw(self.player, self.tmx_data)
-        self.visible_sprites.render(self.player, self.tmx_data)
-        self.visible_sprites.update()
-        debug(self.player.status)
-
-class YSortCameraGroup(pygame.sprite.Group):
-    """
-    Class of object sorted by 'y' to create camera
-    """
-    def __init__(self):
-
-        #general setup
-        super().__init__()
-        self.display_surface = pygame.display.get_surface()
-        self.half_width = self.display_surface.get_size()[0]//2
-        self.half_height = self.display_surface.get_size()[1]//2
-        self.offset = pygame.math.Vector2()
-
-        #
+        # managing animation setup
         self.frame_index = 0
         self.nextFrame = pygame.time.get_ticks()
 
-        # creating the floor
-        self.floor_surf = pygame.image.load('game/graphics/ground.png').convert()
-        self.floor_rect = self.floor_surf.get_rect(topleft = (0,0))
-        
-    def custom_draw(self, player):
-        # getting offset
-        self.offset.x = player.rect.centerx - self.half_width
-        self.offset.y = player.rect.centery - self.half_height
+        # foam
+        for x, y, gid in self.tmx_data.get_layer_by_name('foam'):
+            if gid:
+                foam = ti(gid)
+                offsety = TILESIZE*(foam.get_height()//TILESIZE-1)
+                Foam((x*TILESIZE, y*TILESIZE - offsety), foam, [self.all_sprites], gid)
 
+        # ground
+        for layer in ['sand', 'grass_0', 'shadows_0', 'rock_0', 'grass_1', 'shadows_1', 'rock_1', 'grass_2', 'bridge']:
+            for x, y, surf in self.tmx_data.get_layer_by_name(layer).tiles():
+                if surf:
+                    Generic((x*TILESIZE, y*TILESIZE), surf, self.all_sprites, LAYERS[layer])
 
-        #drawing the floor
-        floor_offset_pos = self.floor_rect.topleft - self.offset
-        self.display_surface.blit(self.floor_surf, floor_offset_pos)
+        # deco
+        for x, y, gid in self.tmx_data.get_layer_by_name('deco'):
+            if gid:
+                surf = ti(gid)
+                offsety = TILESIZE*(surf.get_height()//TILESIZE-1)
+                Deco((x*TILESIZE, y*TILESIZE - offsety), surf, [self.all_sprites], gid)
 
-        for layer in LAYERS.values():
-        #   for sprite in self.sprites():
-        #       if sprite.z == layer:
-        #           self.display_surface.blit(sprite.image, sprite.rect)
-            for sprite in sorted(self.sprites(), key = lambda sprite: sprite.rect.centery):
-                if sprite.z == layer:
-                    if sprite == player:
-                        offset_pos = (sprite.rect.topleft[0], sprite.rect.topleft[1] ) - self.offset
-                    else:
-                        offset_pos = sprite.rect.topleft - self.offset
-                    self.display_surface.blit(sprite.image, offset_pos)
+        # trees
+        for x, y, gid in self.tmx_data.get_layer_by_name('tree'):
+            if gid:
+                tree = ti(gid)
+                offsety = TILESIZE*(tree.get_height()//TILESIZE-1)
+                Tree(
+                    pos = (x*TILESIZE, y*TILESIZE - offsety),
+                    surf = tree,
+                    groups = [self.all_sprites,
+                            self.obstacle_sprites,
+                            self.tree_sprites],
+                    gid = gid)
+                
+        # buildings
+        for obj in self.tmx_data.get_layer_by_name('buildings'):
+            if obj.name == 'Castle' or  obj.name == 'Tower' or obj.name == 'House':
+                build = ti(obj.gid)
+                offsety = TILESIZE*(build.get_height()//TILESIZE-1)
+                Building((obj.x, obj.y), obj.image, [self.all_sprites, self.obstacle_sprites])
 
+        ## sprites
+        #for x, y, gid in self.tmx_data.get_layer_by_name('sprites'):
+        #    sprite = ti(gid)
+        #    if sprite:
+        #        offsety = TILESIZE*(sprite.get_height()//TILESIZE-1)
+        #        Sprite((x*TILESIZE, y*TILESIZE - offsety), sprite, [self.all_sprites], gid)
 
-    def render(self, player, tmx_data):
-        """
-        Draws the images on screen, keeping the camera centred on player
-        """
-        self.tmx_data = tmx_data
+        # bounds
+        for x, y, surf in self.tmx_data.get_layer_by_name('bounds').tiles():
+            Bound((x*TILESIZE, y*TILESIZE),
+                    pygame.Surface((TILESIZE, TILESIZE)), [self.obstacle_sprites])
 
-        # managing foam frames
+        # Player
+        for obj in self.tmx_data.get_layer_by_name('player'):
+            if obj.name == 'Start':
+                self.player = Player(
+                    pos = (obj.x, obj.y),
+                    groups = self.all_sprites,
+                    obstacle_sprites = self.obstacle_sprites,
+                    tree_sprites = self.tree_sprites)
+
+    def run(self):
+        ti = self.tmx_data.get_tile_image_by_gid
+
+        # drawing logic
+        self.display_surface.fill((71, 171, 169, 1)) ## paints sea
+        self.all_sprites.custom_draw(self.player)
+
+        # managing animated frames
         if pygame.time.get_ticks() > self.nextFrame:
             self.frame_index = self.frame_index + 1
             self.nextFrame += 100
 
-        # getting offset
-        self.offset.x = player.rect.centerx - self.half_width
-        self.offset.y = player.rect.centery - self.half_height
+            for sprite in self.all_sprites:
+                if hasattr(sprite, 'gid'):
+                    props = self.tmx_data.get_tile_properties_by_gid(sprite.gid)
+                    if props and props['frames'] and sprite.image == ti(props['frames'][(self.frame_index-1)%len(props["frames"])].gid):
+                        sprite.image = ti(props['frames'][self.frame_index%len(props["frames"])].gid)
 
-        # drawing the floor
-        #floor_offset_pos = self.floor_rect.topleft - self.offset
-        #self.display_surface.blit(self.floor_surf, floor_offset_pos)
-    #? ---------------------------- render levels ----------------------------
-        ti = self.tmx_data.get_tile_image_by_gid
-        for layer in self.tmx_data.visible_layers:
-            #if isinstance(layer, pytmx.TiledTileLayer):
-            for x, y, gid in layer:
-                tile = ti(gid)
-                if tile:
-                    offsety = 0
-                    if layer == self.tmx_data.get_layer_by_name("sea"):
-                        pass
-                    #elif layer == self.tmx_data.get_layer_by_name("bounds"):
-                    #    for x, y, bound in layer:                                  #! non funziona
-                    #        Tile((x,y), [player.obstacle_sprites], 'invisible')
+        self.all_sprites.update()
+
+
+class YSortCameraGroup(pygame.sprite.Group):
+    def __init__(self):
+        super().__init__()
+        self.display_surface = pygame.display.get_surface()
+        self.offset = pygame.math.Vector2()
+        self.cursor = Cursor()
+
+    def custom_draw(self, player):
+        self.offset.x = player.rect.centerx - WIDTH / 2
+        self.offset.y = player.rect.centery - HEIGHT / 2
+
+        for layer in LAYERS.values():
+            for sprite in sorted(self.sprites(), key=lambda sprite: sprite.hitbox.bottom):
+                if sprite.z == layer:
+                    if sprite == player:
+                        offset_pos = (sprite.rect.topleft[0], sprite.rect.topleft[1]-32) - self.offset
                     else:
-                        #if layer == self.tmx_data.get_layer_by_name("foam"):
-                        for gid_, props in self.tmx_data.tile_properties.items():
-                            if gid == gid_ and props['frames'] and tile == self.tmx_data.get_tile_image_by_gid(props['frames'][0].gid):
-                                tile = self.tmx_data.get_tile_image_by_gid(props['frames'][self.frame_index%len(props["frames"])].gid)
-                        #if layer != self.tmx_data.get_layer_by_name("deco"): #and layer != self.tmx_data.get_layer_by_name("tree"):
-                        #? manage oversized tiles
-                        if tile.get_height() > TILESIZE:
-                            offsety = TILESIZE*(tile.get_height()//TILESIZE-1)
-                        
-                        offset_pos = (x*tmx_data.tilewidth, y*tmx_data.tileheight) - self.offset
-                        self.display_surface.blit(tile, (offset_pos[0], offset_pos[1] - offsety))
-    #?-----------------------------------------------------------------------------------
+                        offset_pos = sprite.rect.topleft - self.offset
+                    self.display_surface.blit(sprite.image, offset_pos)
+
+                    # analytics
+                    # if sprite.z == LAYERS['main']:
+                    #     #pygame.draw.rect(self.display_surface, 'red', offset_rect, 5)
+                    #     hitbox_rect = sprite.hitbox.copy()
+                    #     hitbox_rect.center = offset_rect.center
+                    #     pygame.draw.rect(self.display_surface, 'green', hitbox_rect, 5)
         
-
-        for sprite in sorted(self.sprites(), key = lambda sprite: sprite.hitbox.bottom):
-            if sprite == player:
-                offset_pos = (sprite.rect.topleft[0], sprite.rect.topleft[1]-25) - self.offset
-            else:
-                offset_pos = sprite.rect.topleft - self.offset
-            self.display_surface.blit(sprite.image, offset_pos)
-
-
-        #? --------------- debug hitbox ---------------
-        """
-        surf = pygame.Surface((player.hitbox_damage.width, player.hitbox_damage.height))
-        surf.fill("red")
-        self.display_surface.blit(surf,(player.hitbox_damage.topleft[0] - player.hitbox_damage.centerx + self.half_width, player.hitbox_damage.topleft[1] - player.hitbox_damage.centery + self.half_height))
-        \"""
-        surf = pygame.Surface((player.hitbox.width, player.hitbox.height))
-        surf.fill("black")
-        self.display_surface.blit(surf,(player.hitbox.topleft[0] - player.hitbox.centerx + self.half_width, player.hitbox.topleft[1] - player.hitbox.centery + self.half_height))
-        """
+        self.cursor.update()
+        self.display_surface.blit(self.cursor.cursor_img, self.cursor.cursor_rect) # draw the cursor
