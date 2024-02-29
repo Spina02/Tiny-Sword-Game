@@ -1,8 +1,9 @@
 import pygame
 from pygame.locals import *
 from settings import *
+from entity import Entity
 
-class Player(pygame.sprite.Sprite):
+class Player(Entity):
     """
     Is one of the main classes of the project, it deals the manipulation the player.
     #### Player(pos, groups, obstacle_sprites):
@@ -35,12 +36,24 @@ class Player(pygame.sprite.Sprite):
 
         #? ---------------- movement ----------------
         self.direction = pygame.math.Vector2()
-        self.speed = 3
         self.attacking = False
         self.attack_cooldown = 500
         self.attack_time = None
 
         self.obstacle_sprites = obstacle_sprites
+        
+        #? ---------------- weapons ----------------
+        self.weapon_index = 0
+    
+        #? ---------------- stats ----------------
+        self.stats = {"health": 100, 
+                      "energy": 60,
+                      "attack": 10,
+                      "speed": (3)}
+        self.health = self.stats["health"] 
+        self.energy = self.stats["energy"]
+        self.speed = self.stats["speed"]
+        self.exp = 123
 
     def import_player_assets(self):
         """

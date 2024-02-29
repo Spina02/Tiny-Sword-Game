@@ -8,6 +8,7 @@ from pytmx.util_pygame import load_pygame
 from sprites import *
 import pytmx
 from gui import Cursor
+from ui import UI
 
 class Level:
     def __init__(self):
@@ -21,6 +22,7 @@ class Level:
         # self.interaction_sprites = pygame.sprite.Group()
 
         self.setup()
+        self.ui = UI()
         
     def setup(self):
         self.tmx_data = load_pygame(WORLD_TMX)
@@ -110,6 +112,7 @@ class Level:
                         sprite.image = ti(props['frames'][self.frame_index%len(props["frames"])].gid)
 
         self.all_sprites.update()
+        self.ui.display(self.player)
 
 
 class YSortCameraGroup(pygame.sprite.Group):
