@@ -37,3 +37,4 @@ class Cursor():
         else:
             self.cursor_rect.center = pygame.mouse.get_pos()
         
+# class Menu():

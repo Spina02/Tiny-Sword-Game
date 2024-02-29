@@ -1,43 +1,43 @@
 Legenda: "-" non fatto, "X" fatto
 
-[-] Finire punti del video:
-    [•] Weapons
-    [•] UI
-    [•] Magic setup (??)
-    [•] Enemy creation
-    [•] Player-Enemy interaction
-    [•] Particles
-    [•] Spells
-    [•] Upgrade system and menu
-    [•] Sound
-    [•] Final fixes
+[ ] Finire punti del video:
+    [ ] Weapons
+    [ ] UI
+    [ ] Magic setup (??)
+    [ ] Enemy creation
+    [ ] Player-Enemy interaction
+    [ ] Particles
+    [ ] Spells
+    [ ] Upgrade system and menu
+    [ ] Sound
+    [ ] Final fixes
 
-[-] Finire di implementare la logica base
-[-] Creare mappa più complessa
-[-] Gestire le transizioni tra mappe
-[-] Creare funzioni per gestire le animazioni
-[-] Implementare combact system (gestire animazioni per il combattimento)
-[-] Implementare nemici con un IA base
-[-] Implementare funzioni che permettano interazioni tra oggetti
-[-] Implementare alcuni NPC, con un pattern di movimento e dei dialoghi
-[-] Implementare loot
-[-] Possibile sistema di progressione del personaggio
-[-] Gestire i sistemi di salvataggio e caricamento
-[-] Aggiunta di una valuta e di shop per comprare items
-[-] Creare un tileset unico, in modo da ottimizzare la pesantezza
-[-] Possibile sistema di Crafting e raccolta risorse
-[-] Variazioni ambientali e climatiche (giorno/notte)
-[-] Aggiunta di puzzle o minigiochi
-[-] Aggiunta del tutorial
-[-] Implementazioni di musiche e effetti sonori
-[-] Aggiunta modalità co-op
-[-] Aggiunta personalizzazione del personaggio
-[-] Aggiunta di una trama
-[-] Sistema di achievement
-[-] Aggiunta delle cut-scene per una trama più coinvolgente (livello EXTREME)
-[-] Gestire la mira del colpo attraverso il puntatore del mouse
-[-] Aggiunta easter eggs --> entrando in un punto della mappa si entra nel gioco del matti (chi sa, sa)
-[-] Ottimizzare il codice
+[•] Creare funzioni per gestire le animazioni
+[ ] Finire di implementare la logica base
+[ ] Creare mappa più complessa
+[ ] Gestire le transizioni tra mappe
+[ ] Implementare combact system (gestire animazioni per il combattimento)
+[ ] Implementare nemici con un IA base
+[ ] Implementare funzioni che permettano interazioni tra oggetti
+[ ] Implementare alcuni NPC, con un pattern di movimento e dei dialoghi
+[ ] Implementare loot
+[ ] Possibile sistema di progressione del personaggio
+[ ] Gestire i sistemi di salvataggio e caricamento
+[ ] Aggiunta di una valuta e di shop per comprare items
+[ ] Creare un tileset unico, in modo da ottimizzare la pesantezza (?)
+[ ] Possibile sistema di Crafting e raccolta risorse
+[ ] Variazioni ambientali e climatiche (giorno/notte)
+[ ] Aggiunta di puzzle o minigiochi
+[ ] Aggiunta del tutorial
+[ ] Implementazioni di musiche e effetti sonori
+[ ] Aggiunta modalità co-op
+[ ] Aggiunta personalizzazione del personaggio
+[ ] Aggiunta di una trama
+[ ] Sistema di achievement
+[ ] Aggiunta delle cut-scene per una trama più coinvolgente (livello EXTREME)
+[ ] Gestire la mira del colpo attraverso il puntatore del mouse (?)
+[ ] Aggiunta easter eggs --> entrando in un punto della mappa si entra nel gioco del matti (chi sa, sa)
+[ ] Ottimizzare il codice 
 
 video di riferimento:
 
