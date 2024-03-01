@@ -49,7 +49,8 @@ class Player(Entity):
         self.stats = {"health": 100, 
                       "energy": 60,
                       "attack": 10,
-                      "speed": (3)}
+                      "speed" : 3,
+                      "exp"   : 123}
         self.health = self.stats["health"] 
         self.energy = self.stats["energy"]
         self.speed = self.stats["speed"]
@@ -115,14 +116,22 @@ class Player(Entity):
         manages the inputs from keyboard
         """
         keys = pygame.key.get_pressed()
-        
 
         if not self.attacking:
             # movement input
-            if keys[K_LCTRL]:
-                self.speed = 4
+            if keys[K_LCTRL] and self.energy > 0.1:
+                if self.speed != 4:
+                    if self.energy > 15:
+                        self.speed = 4
+                        self.energy -= 0.1
+                    else:
+                        self.energy += 0.02
+                else:
+                    self.energy -= 0.1
             else:
                 self.speed = 3
+                if self.energy < self.stats["energy"]:
+                    self.energy += 0.02
             #if keys[K_UP]:
             if keys[K_w]:
                 self.direction.y = -1
@@ -149,6 +158,7 @@ class Player(Entity):
             if keys[K_SPACE] and not self.attacking:
                 self.attacking = True
                 self.attack_time = pygame.time.get_ticks()
+                self.energy -= 5
 
         
     def get_status(self):

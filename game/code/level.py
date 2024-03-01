@@ -137,12 +137,12 @@ class YSortCameraGroup(pygame.sprite.Group):
                         offset_pos = sprite.rect.topleft - self.offset
                     self.display_surface.blit(sprite.image, offset_pos)
 
-                    # analytics
-                    if sprite.z == LAYERS['main']:
-                        #pygame.draw.rect(self.display_surface, 'red', offset_rect, 5)
-                        hitbox_rect = sprite.hitbox.copy()
-                        hitbox_rect.center = offset_rect.center
-                        pygame.draw.rect(self.display_surface, 'green', hitbox_rect, 5)
+                    # # analytics
+                    # if sprite.z == LAYERS['main']:
+                    #     #pygame.draw.rect(self.display_surface, 'red', offset_rect, 5)
+                    #     hitbox_rect = sprite.hitbox.copy()
+                    #     hitbox_rect.center = offset_rect.center
+                    #     pygame.draw.rect(self.display_surface, 'green', hitbox_rect, 5)
         
         # self.cursor.update()
         # self.display_surface.blit(self.cursor.cursor_img, self.cursor.cursor_rect) # draw the cursor
