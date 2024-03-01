@@ -5,8 +5,8 @@ class Generic(pygame.sprite.Sprite):
     def __init__(self, pos, surf, groups, z=LAYERS['main']):
         super().__init__(groups)
         self.image = surf
-        self.rect = self.image.get_rect(topleft=pos)
         self.z = z
+        self.rect = self.image.get_rect(topleft=pos)
         self.hitbox = self.rect.copy().inflate(-10,-self.rect.height*0.20)
 
 class Deco(Generic):
@@ -34,7 +34,9 @@ class Bound(Generic):
 class Building(Generic):
     def __init__(self, pos, surf, groups):
         super().__init__(pos, surf, groups)
-        self.hitbox = self.rect.inflate(-10,-self.rect.height*0.20)
+        self.rect = self.image.get_rect(topleft= (pos[0]
+                                                  , pos[1]))
+        self.hitbox = self.rect.copy().inflate(-10,-self.rect.height*0.40)
 
 class Tree(Generic):
     def __init__(self, pos, surf, groups, gid):

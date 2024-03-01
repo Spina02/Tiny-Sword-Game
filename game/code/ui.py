@@ -7,8 +7,8 @@ class UI:
         self.display_surface = pygame.display.get_surface()
         self.font = pygame.font.Font(UI_FONT, UI_FONT_SIZE)
         
-        self.health_bar_rect = pygame.Rect(10, 10, HEALTH_BAR_WIDTH, BAR_HEIGHT)
-        self.energy_bar_rect = pygame.Rect(10, 34, ENERGY_BAR_WIDTH, BAR_HEIGHT)
+        self.health_bar_rect = pygame.Rect(WIDTH*0.005, HEIGHT*0.01, HEALTH_BAR_WIDTH, BAR_HEIGHT)
+        self.energy_bar_rect = pygame.Rect(WIDTH*0.005, HEIGHT*0.03, ENERGY_BAR_WIDTH, BAR_HEIGHT)
     
     def show_bar(self, current, max_amount, bg_rect, color):
         #? draw bg
@@ -42,7 +42,7 @@ class UI:
         pygame.draw.rect(self.display_surface, UI_BORDER_COLOR, bg_rect, 3)    
         
     def weapon_overlay(self, weapon_index):
-        bg_rect = self.selection_box(10, 940)
+        bg_rect = self.selection_box(WIDTH*0.01, HEIGHT*0.91)
 
         #self.display_surface.blit(weapon_surf, weapon_rect)
         

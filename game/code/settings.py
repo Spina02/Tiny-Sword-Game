@@ -1,5 +1,6 @@
-WIDTH    = 1920
-HEIGHT   = 1080
+import pyautogui
+
+WIDTH, HEIGHT = pyautogui.size()
 FPS      = 60
 TILESIZE = 64
 
@@ -11,7 +12,7 @@ BAR_HEIGHT = 20
 HEALTH_BAR_WIDTH = 200
 ENERGY_BAR_WIDTH = 140
 ITEM_BOX_SIZE = 80
-UI_FONT = "game/graphics/font/LycheeSoda.ttf"
+UI_FONT = "game/graphics/Font/LycheeSoda.ttf"
 UI_FONT_SIZE = 32
 
 #? General Color

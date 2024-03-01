@@ -21,7 +21,7 @@ class Game:
         """
         while True:
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+                if event.type == pygame.QUIT or pygame.key.get_pressed()[K_ESCAPE]:
                     pygame.quit()
                     sys.exit()
             self.level.run()

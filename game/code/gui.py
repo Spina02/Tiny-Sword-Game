@@ -25,12 +25,12 @@ class Cursor():
         """
         Define cooldowns for actions as 'click'
         """
-        current_time = pygame.time.get_ticks()
         if self.click:
+            current_time = pygame.time.get_ticks()
             if current_time - self.click_time >= self.click_cooldown:
                 self.click = False
             else:
-                if current_time - self.click_time <= self.click_cooldown/2:
+                if current_time - self.click_time <= self.click_cooldown>>1:
                     self.cursor_rect.center = (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1] + 4)
                 else:
                     self.cursor_rect.center = (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
