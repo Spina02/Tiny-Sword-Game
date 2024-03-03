@@ -10,22 +10,20 @@ class Cursor():
         self.cursor_rect = self.cursor_img.get_rect()
         self.cursor_rect.center = pygame.mouse.get_pos()
         self.click = False
-        self.click_time = self.click_time = pygame.time.get_ticks();
+        self.click_time = pygame.time.get_ticks();
         self.click_cooldown = 200
 
-    def update(self):
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONUP:
-                self.click = True
-                self.click_time = pygame.time.get_ticks();
-        
-        self.cooldowns()
+    def do_click(self):
+        self.click = True
+        self.click_time = pygame.time.get_ticks();
+        self.update()
 
-    def cooldowns(self):
+    def update(self):
         """
         Define cooldowns for actions as 'click'
         """
         if self.click:
+            #pos = pygame.mouse.get_pos()
             current_time = pygame.time.get_ticks()
             if current_time - self.click_time >= self.click_cooldown:
                 self.click = False

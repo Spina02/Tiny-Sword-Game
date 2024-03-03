@@ -34,8 +34,7 @@ class Bound(Generic):
 class Building(Generic):
     def __init__(self, pos, surf, groups):
         super().__init__(pos, surf, groups)
-        self.rect = self.image.get_rect(topleft= (pos[0]
-                                                  , pos[1]))
+        self.rect = self.image.get_rect(topleft= (pos[0], pos[1]))
         self.hitbox = self.rect.copy().inflate(-10,-self.rect.height*0.40)
 
 class Tree(Generic):

@@ -14,6 +14,7 @@ class Game:
         pygame.display.set_caption("game")
         self.clock = pygame.time.Clock()
         self.level = Level()
+        self.cursor = Cursor()
 
     def run(self):
         """
@@ -21,9 +22,14 @@ class Game:
         """
         while True:
             for event in pygame.event.get():
-                if event.type == pygame.QUIT or pygame.key.get_pressed()[K_ESCAPE]:
-                    pygame.quit()
-                    sys.exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        pygame.quit()
+                        sys.exit()
+                        
+                if event.type == pygame.MOUSEBUTTONUP:
+                    self.level.all_sprites.cursor.do_click()
+            
             self.level.run()
             pygame.display.update()
             self.clock.tick(FPS)

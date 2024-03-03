@@ -119,7 +119,7 @@ class Player(Entity):
 
         if not self.attacking:
             # movement input
-            if keys[K_LCTRL] and self.energy > 0.1:
+            if keys[K_LCTRL] and self.energy > 0.1 and abs(self.direction.x) + abs(self.direction.y) > 0:
                 if self.speed != 4:
                     if self.energy > 15:
                         self.speed = 4
@@ -190,40 +190,9 @@ class Player(Entity):
                 self.status = self.status.replace('_attack', '')
                 #self.frame_index = 0
 
-    def move(self, speed):    
-        """
-        Manages the movement of the player checking for collisions
-        """   
-        if self.direction.magnitude() != 0:
-            self.direction = self.direction.normalize()*1.1
-        
-        self.hitbox.x += self.direction.x*speed
-        self.collision("horizontal")
-        self.hitbox.y += self.direction.y*speed
-        self.collision("vertical")
-        self.rect.center = self.hitbox.center
+    #def move(self, speed):           #? now in entity.py
+    # def collision(self, direction): #? now in entity.py
 
-    def collision(self, direction):
-        """
-        Manages the collisions
-        """
-        # TODO: implementare meglio le masks
-
-        if direction == "horizontal":
-            for sprite in self.obstacle_sprites:
-               if sprite.hitbox.colliderect(self.hitbox): # check between rects
-                    if self.direction.x > 0: # moving right
-                        self.hitbox.right = sprite.hitbox.left
-                    if self.direction.x < 0: # moving left
-                        self.hitbox.left = sprite.hitbox.right
-        if direction == "vertical":
-            for sprite in self.obstacle_sprites:
-                if sprite.hitbox.colliderect(self.hitbox):
-                    if self.direction.y > 0: # moving down
-                        self.hitbox.bottom = sprite.hitbox.top
-                    if self.direction.y < 0: # moving up
-                        self.hitbox.top = sprite.hitbox.bottom
-                    
     def cooldowns(self):
         """
         Define cooldowns for actions as 'attack'
